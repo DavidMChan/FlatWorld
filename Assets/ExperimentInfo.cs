@@ -5,4 +5,5 @@ using UnityEngine;
 [System.Serializable]
 public class ExperimentInfo {
 	public MovingBallInfo[] data;
+	public bool show_hands;
 }

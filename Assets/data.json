@@ -18,8 +18,9 @@
 				"type": "cylinder",
 				"scale": 0.1,
 				"wireframe": true
-			}
-			]
+			},
+			],
+			"show_hands": true
 		},
 		{
 			"data": [
@@ -39,7 +40,8 @@
 				"scale": 0.1,
 				"wireframe": true
 			}
-			]
+			],
+			"show_hands": true
 		}
 
 	]

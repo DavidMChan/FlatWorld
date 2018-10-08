@@ -12,6 +12,8 @@ public class PositionController : MonoBehaviour {
     public List<MovingBall> tracked_game_objects;
     public MovingBall[] object_samples;
 
+    public GameObject hand_model;
+
     // List<List<Vector3>> positions;
     public AudioSource save_sound;
     public AudioSource toggle_sound;
@@ -32,7 +34,6 @@ public class PositionController : MonoBehaviour {
         // initial_positions.Add(table.position);
         loadData();
         updateObjects();
-
         
         /*
         foreach (MovingBall mb in tracked_game_objects) {
@@ -46,8 +47,13 @@ public class PositionController : MonoBehaviour {
         foreach (MovingBall ext_object in tracked_game_objects) {
             Destroy(ext_object);
         }
-        
+
         tracked_game_objects.Clear();
+        if (experiment_infos[current_index].show_hands) {
+            hand_model.SetActive(true);
+        } else {
+            hand_model.SetActive(false);
+        }
 
         MovingBallInfo[] object_infos = experiment_infos[current_index].data;
         foreach (MovingBallInfo info in object_infos) {
