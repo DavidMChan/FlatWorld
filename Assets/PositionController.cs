@@ -33,7 +33,7 @@ public class PositionController : MonoBehaviour {
         loadData();
 
         foreach (MovingBallInfo info in object_infos) {
-            MovingBall ref_object = object_samples[2];
+            MovingBall ref_object = object_samples[0];
             if (info.type == "sphere") {
                 ref_object = object_samples[0];
             }

@@ -8,15 +8,20 @@ public class MovingBall : MonoBehaviour {
     public Transform table;
 
 
-    public float y_offset, x_offset, z_offset;
+    public float y_offset = 0.0F, x_offset = 0.0F, z_offset = 0.0F;
     public enum Selector {Up, Down, Left, Right, X};
     public Selector selector;
+
+    void Awake()
+    {
+        this.table = GameObject.FindGameObjectWithTag("table").transform;
+    }
 
     // Use this for initialization
     void Start() {
         this.y_offset = this.transform.position.y - table.position.y;
-        this.x_offset = this.transform.position.x - table.position.x;
-        this.z_offset = this.transform.position.z - table.position.z;
+        // this.x_offset = this.transform.position.x - table.position.x;
+        // this.z_offset = this.transform.position.z - table.position.z;
     }
 
     void update_motion() {

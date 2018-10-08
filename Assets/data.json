@@ -1,18 +1,18 @@
 {
 	"data": [
 		{
-			"x_offset": 0.1,
+			"x_offset": -3.0,
 			"z_offset": 0.1,
 			"rotation": 20.0,
 			"type": "sphere",
-			"scale": 2.0
+			"scale": 0.2
 		},
 		{
-			"x_offset": 0.1,
+			"x_offset": 2.0,
 			"z_offset": 0.5,
 			"rotation": 10.0,
 			"type": "cylinder",
-			"scale": 1.0
+			"scale": 0.1
 		}
 	]
 }
