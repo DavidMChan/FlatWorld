@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;       
 using UnityEngine;
 
 public class PositionController : MonoBehaviour {
 
     public Transform table;
-    public MovingBall[] tracked_game_objects;
+
+    public MovingBallInfo[] object_infos;
+
+    public List<MovingBall> tracked_game_objects;
+    public MovingBall[] object_samples;
+
     List<List<Vector3>> positions;
     public AudioSource save_sound;
     public AudioSource toggle_sound;
@@ -21,12 +27,53 @@ public class PositionController : MonoBehaviour {
         yield return new WaitForSeconds(waitTime);
 
         positions = new List<List<Vector3>>();
+        tracked_game_objects = new List<MovingBall>();
         List<Vector3> initial_positions = new List<Vector3>();
         initial_positions.Add(table.position);
+        loadData();
+
+        foreach (MovingBallInfo info in object_infos) {
+            MovingBall ref_object = object_samples[2];
+            if (info.type == "sphere") {
+                ref_object = object_samples[0];
+            }
+            if (info.type == "cylinder") {
+                ref_object = object_samples[1];
+            }
+
+            MovingBall new_object = Instantiate(ref_object);
+            new_object.x_offset = info.x_offset;
+            new_object.z_offset = info.z_offset;
+            new_object.transform.eulerAngles = new Vector3(0, info.rotation, 0);
+            new_object.transform.localScale += new Vector3(info.scale, info.scale, info.scale);
+
+            tracked_game_objects.Add(new_object);
+        }
+
+
         foreach (MovingBall mb in tracked_game_objects) {
             initial_positions.Add(new Vector3(mb.x_offset, mb.y_offset, mb.z_offset));
         }
         positions.Add(initial_positions);
+    }
+
+    void loadData() {
+        string sceneDataFileName = "data.json";
+        string filePath = Path.Combine(Application.dataPath, sceneDataFileName);
+        if(File.Exists(filePath))
+        {
+            // Read the json from the file into a string
+            string dataAsJson = File.ReadAllText(filePath); 
+            // Pass the json to JsonUtility, and tell it to create a GameData object from it
+            DataWrapper loadedData = JsonUtility.FromJson<DataWrapper>(dataAsJson);
+
+            // Retrieve the allRoundData property of loadedData
+            object_infos = loadedData.data;
+        }
+        else
+        {
+            Debug.LogError("Cannot load game data!");
+        }
     }
 	
 	// Update is called once per frame
@@ -37,7 +84,7 @@ public class PositionController : MonoBehaviour {
             table.position = new Vector3(positions[current_index][0].x, positions[current_index][0].y, positions[current_index][0].z);
             // Edit the offsets of each of the minor elements
             int j = 1;
-            for (int i = 0; i < tracked_game_objects.Length; i++) {
+            for (int i = 0; i < tracked_game_objects.Count; i++) {
                 if (tracked_game_objects[i] != null) {
                     tracked_game_objects[i].x_offset = positions[current_index][j].x;
                     tracked_game_objects[i].y_offset = positions[current_index][j].y;
@@ -54,7 +101,7 @@ public class PositionController : MonoBehaviour {
             List<Vector3> current_position_set = new List<Vector3>();
             current_position_set.Add(table.position);
             // Edit the offsets of each of the minor elements
-            for (int i = 0; i < tracked_game_objects.Length; i++) {
+            for (int i = 0; i < tracked_game_objects.Count; i++) {
                 if (tracked_game_objects[i] != null) {
                     current_position_set.Add(new Vector3(tracked_game_objects[i].x_offset, tracked_game_objects[i].y_offset, tracked_game_objects[i].z_offset));
                 }

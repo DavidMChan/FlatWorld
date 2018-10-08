@@ -1,0 +1,18 @@
+{
+	"data": [
+		{
+			"x_offset": 0.1,
+			"z_offset": 0.1,
+			"rotation": 20.0,
+			"type": "sphere",
+			"scale": 2.0
+		},
+		{
+			"x_offset": 0.1,
+			"z_offset": 0.5,
+			"rotation": 10.0,
+			"type": "cylinder",
+			"scale": 1.0
+		}
+	]
+}
