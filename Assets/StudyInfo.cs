@@ -3,6 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class DataWrapper {
-	public MovingBallInfo[] data;
+public class StudyInfo {
+	public ExperimentInfo[] experiments;
 }

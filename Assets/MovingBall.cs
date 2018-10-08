@@ -20,8 +20,6 @@ public class MovingBall : MonoBehaviour {
     // Use this for initialization
     void Start() {
         this.y_offset = this.transform.position.y - table.position.y;
-        // this.x_offset = this.transform.position.x - table.position.x;
-        // this.z_offset = this.transform.position.z - table.position.z;
     }
 
     void update_motion() {

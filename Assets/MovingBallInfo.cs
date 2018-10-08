@@ -9,5 +9,5 @@ public class MovingBallInfo {
     public float rotation;
     public string type;
     public float scale;
-
+    public bool wireframe;
 }

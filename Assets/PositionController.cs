@@ -7,12 +7,12 @@ public class PositionController : MonoBehaviour {
 
     public Transform table;
 
-    public MovingBallInfo[] object_infos;
+    public ExperimentInfo[] experiment_infos;
 
     public List<MovingBall> tracked_game_objects;
     public MovingBall[] object_samples;
 
-    List<List<Vector3>> positions;
+    // List<List<Vector3>> positions;
     public AudioSource save_sound;
     public AudioSource toggle_sound;
 
@@ -26,12 +26,30 @@ public class PositionController : MonoBehaviour {
     IEnumerator LateStart(float waitTime) {
         yield return new WaitForSeconds(waitTime);
 
-        positions = new List<List<Vector3>>();
+        // positions = new List<List<Vector3>>();
         tracked_game_objects = new List<MovingBall>();
-        List<Vector3> initial_positions = new List<Vector3>();
-        initial_positions.Add(table.position);
+        // List<Vector3> initial_positions = new List<Vector3>();
+        // initial_positions.Add(table.position);
         loadData();
+        updateObjects();
 
+        
+        /*
+        foreach (MovingBall mb in tracked_game_objects) {
+            initial_positions.Add(new Vector3(mb.x_offset, mb.y_offset, mb.z_offset));
+        }
+        positions.Add(initial_positions);
+        */
+    }
+
+    void updateObjects() {
+        foreach (MovingBall ext_object in tracked_game_objects) {
+            Destroy(ext_object);
+        }
+        
+        tracked_game_objects.Clear();
+
+        MovingBallInfo[] object_infos = experiment_infos[current_index].data;
         foreach (MovingBallInfo info in object_infos) {
             MovingBall ref_object = object_samples[0];
             if (info.type == "sphere") {
@@ -40,7 +58,9 @@ public class PositionController : MonoBehaviour {
             if (info.type == "cylinder") {
                 ref_object = object_samples[1];
             }
-
+            if (info.wireframe) {
+                GL.wireframe = true;
+            }
             MovingBall new_object = Instantiate(ref_object);
             new_object.x_offset = info.x_offset;
             new_object.z_offset = info.z_offset;
@@ -48,13 +68,9 @@ public class PositionController : MonoBehaviour {
             new_object.transform.localScale += new Vector3(info.scale, info.scale, info.scale);
 
             tracked_game_objects.Add(new_object);
+            GL.wireframe = false;
         }
 
-
-        foreach (MovingBall mb in tracked_game_objects) {
-            initial_positions.Add(new Vector3(mb.x_offset, mb.y_offset, mb.z_offset));
-        }
-        positions.Add(initial_positions);
     }
 
     void loadData() {
@@ -65,10 +81,10 @@ public class PositionController : MonoBehaviour {
             // Read the json from the file into a string
             string dataAsJson = File.ReadAllText(filePath); 
             // Pass the json to JsonUtility, and tell it to create a GameData object from it
-            DataWrapper loadedData = JsonUtility.FromJson<DataWrapper>(dataAsJson);
+            StudyInfo loadedData = JsonUtility.FromJson<StudyInfo>(dataAsJson);
 
             // Retrieve the allRoundData property of loadedData
-            object_infos = loadedData.data;
+            experiment_infos = loadedData.experiments;
         }
         else
         {
@@ -80,9 +96,11 @@ public class PositionController : MonoBehaviour {
 	void Update () {
         // First cycle through positions 
         if (Valve.VR.SteamVR_Input._default.inActions.WPress.GetStateDown(Valve.VR.SteamVR_Input_Sources.Any)) {
-            current_index = (current_index + 1) % positions.Count;
-            table.position = new Vector3(positions[current_index][0].x, positions[current_index][0].y, positions[current_index][0].z);
+            current_index = (current_index + 1) % experiment_infos.Length;
+            updateObjects();
+            // table.position = new Vector3(positions[current_index][0].x, positions[current_index][0].y, positions[current_index][0].z);
             // Edit the offsets of each of the minor elements
+            /*
             int j = 1;
             for (int i = 0; i < tracked_game_objects.Count; i++) {
                 if (tracked_game_objects[i] != null) {
@@ -92,10 +110,12 @@ public class PositionController : MonoBehaviour {
                     j += 1;
                 }
             }
+            */
             toggle_sound.PlayOneShot(toggle_sound.clip);
         }
 
         // Store the positions if the other button is pressed
+        /*
         if (Valve.VR.SteamVR_Input._default.inActions.ZPress.GetStateDown(Valve.VR.SteamVR_Input_Sources.Any)) {
             current_index = positions.Count;
             List<Vector3> current_position_set = new List<Vector3>();
@@ -109,6 +129,7 @@ public class PositionController : MonoBehaviour {
             positions.Add(current_position_set);
             save_sound.PlayOneShot(save_sound.clip);
         }
+        */
 
 
     }
