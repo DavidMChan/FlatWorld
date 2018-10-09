@@ -7,16 +7,19 @@ public class PositionController : MonoBehaviour {
 
     public Transform table;
 
-    public ExperimentInfo[] experiment_infos;
+    public ExperimentInfo[] experiment_info;
 
-    public List<MovingBall> tracked_game_objects;
+    private List<GameObject> tracked_game_objects;
     public MovingBall[] object_samples;
 
-    public GameObject hand_model;
+    public GameObject hand_model_l;
+    public GameObject hand_model_r;
 
     // List<List<Vector3>> positions;
     public AudioSource save_sound;
     public AudioSource toggle_sound;
+
+    public Material wireframe_material;
 
     public int current_index = 0;
 
@@ -29,52 +32,66 @@ public class PositionController : MonoBehaviour {
         yield return new WaitForSeconds(waitTime);
 
         // positions = new List<List<Vector3>>();
-        tracked_game_objects = new List<MovingBall>();
-        // List<Vector3> initial_positions = new List<Vector3>();
-        // initial_positions.Add(table.position);
+        tracked_game_objects = new List<GameObject>();
+
+        // Load the data and objects into the scene.
         loadData();
         updateObjects();
-        
-        /*
-        foreach (MovingBall mb in tracked_game_objects) {
-            initial_positions.Add(new Vector3(mb.x_offset, mb.y_offset, mb.z_offset));
-        }
-        positions.Add(initial_positions);
-        */
     }
 
     void updateObjects() {
-        foreach (MovingBall ext_object in tracked_game_objects) {
+
+        // Clean up the scene objects
+        foreach (GameObject ext_object in tracked_game_objects) {
             Destroy(ext_object);
         }
-
         tracked_game_objects.Clear();
-        if (experiment_infos[current_index].show_hands) {
-            hand_model.SetActive(true);
+
+        // Set the hand information for the current index
+        if (experiment_info[current_index].show_hands) {
+            hand_model_l.SetActive(true);
+            hand_model_r.SetActive(true);
         } else {
-            hand_model.SetActive(false);
+            hand_model_r.SetActive(false);
+            hand_model_l.SetActive(false);
         }
 
-        MovingBallInfo[] object_infos = experiment_infos[current_index].data;
+        // Get the information of the moving balls
+        MovingBallInfo[] object_infos = experiment_info[current_index].data;
+
+        // Construct the object
         foreach (MovingBallInfo info in object_infos) {
-            MovingBall ref_object = object_samples[0];
+            MovingBall ref_object = null;
             if (info.type == "sphere") {
                 ref_object = object_samples[0];
-            }
-            if (info.type == "cylinder") {
+            } else if (info.type == "cylinder") {
                 ref_object = object_samples[1];
+            } else if (info.type == "cube") {
+                ref_object = object_samples[2];
+            } else if (info.type == "flat-cylinder") {
+                ref_object = object_samples[3];
+            } else {
+                Debug.Log("Error. Invalid object type.");
+                continue;
             }
-            if (info.wireframe) {
-                GL.wireframe = true;
-            }
+
+            // Instantiate the new object based on the reference object
             MovingBall new_object = Instantiate(ref_object);
+
+            // Set the x, y and z offset from the info
             new_object.x_offset = info.x_offset;
             new_object.z_offset = info.z_offset;
+            new_object.y_offset = info.y_offset;
+            if (info.wireframe) {
+                new_object.SetWireframe();
+            }
+
+            // Set the rotation and scale from the info
             new_object.transform.eulerAngles = new Vector3(0, info.rotation, 0);
             new_object.transform.localScale += new Vector3(info.scale, info.scale, info.scale);
 
-            tracked_game_objects.Add(new_object);
-            GL.wireframe = false;
+            // Add the object to the tracked game objects class
+            tracked_game_objects.Add(new_object.gameObject);
         }
 
     }
@@ -85,12 +102,12 @@ public class PositionController : MonoBehaviour {
         if(File.Exists(filePath))
         {
             // Read the json from the file into a string
-            string dataAsJson = File.ReadAllText(filePath); 
+            string dataAsJson = File.ReadAllText(filePath);
             // Pass the json to JsonUtility, and tell it to create a GameData object from it
             StudyInfo loadedData = JsonUtility.FromJson<StudyInfo>(dataAsJson);
 
             // Retrieve the allRoundData property of loadedData
-            experiment_infos = loadedData.experiments;
+            experiment_info = loadedData.experiments;
         }
         else
         {
@@ -102,41 +119,9 @@ public class PositionController : MonoBehaviour {
 	void Update () {
         // First cycle through positions 
         if (Valve.VR.SteamVR_Input._default.inActions.WPress.GetStateDown(Valve.VR.SteamVR_Input_Sources.Any)) {
-            current_index = (current_index + 1) % experiment_infos.Length;
+            current_index = (current_index + 1) % experiment_info.Length;
             updateObjects();
-            // table.position = new Vector3(positions[current_index][0].x, positions[current_index][0].y, positions[current_index][0].z);
-            // Edit the offsets of each of the minor elements
-            /*
-            int j = 1;
-            for (int i = 0; i < tracked_game_objects.Count; i++) {
-                if (tracked_game_objects[i] != null) {
-                    tracked_game_objects[i].x_offset = positions[current_index][j].x;
-                    tracked_game_objects[i].y_offset = positions[current_index][j].y;
-                    tracked_game_objects[i].z_offset = positions[current_index][j].z;
-                    j += 1;
-                }
-            }
-            */
             toggle_sound.PlayOneShot(toggle_sound.clip);
         }
-
-        // Store the positions if the other button is pressed
-        /*
-        if (Valve.VR.SteamVR_Input._default.inActions.ZPress.GetStateDown(Valve.VR.SteamVR_Input_Sources.Any)) {
-            current_index = positions.Count;
-            List<Vector3> current_position_set = new List<Vector3>();
-            current_position_set.Add(table.position);
-            // Edit the offsets of each of the minor elements
-            for (int i = 0; i < tracked_game_objects.Count; i++) {
-                if (tracked_game_objects[i] != null) {
-                    current_position_set.Add(new Vector3(tracked_game_objects[i].x_offset, tracked_game_objects[i].y_offset, tracked_game_objects[i].z_offset));
-                }
-            }
-            positions.Add(current_position_set);
-            save_sound.PlayOneShot(save_sound.clip);
-        }
-        */
-
-
     }
 }

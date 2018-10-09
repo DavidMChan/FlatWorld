@@ -882,10 +882,10 @@ MonoBehaviour:
   otherHand: {fileID: 11450312}
   handType: 2
   trackedObject: {fileID: 0}
-  grabPinchAction: {fileID: 11400000, guid: e1e61673f75f08e4ea4f1415449c2b48, type: 2}
-  grabGripAction: {fileID: 11400000, guid: 29b47b1dec0472243ac7deb6414b8510, type: 2}
+  grabPinchAction: {fileID: 0}
+  grabGripAction: {fileID: 0}
   hapticAction: {fileID: 11400000, guid: 1cf993681e9283844bab6ce2f9fdf446, type: 2}
-  uiInteractAction: {fileID: 11400000, guid: 0fa45d3040efa7b4593c38d27c55da58, type: 2}
+  uiInteractAction: {fileID: 0}
   useHoverSphere: 1
   hoverSphereTransform: {fileID: 480432}
   hoverSphereRadius: 0.075
@@ -935,10 +935,10 @@ MonoBehaviour:
   otherHand: {fileID: 11401046}
   handType: 1
   trackedObject: {fileID: 0}
-  grabPinchAction: {fileID: 11400000, guid: e1e61673f75f08e4ea4f1415449c2b48, type: 2}
-  grabGripAction: {fileID: 11400000, guid: 29b47b1dec0472243ac7deb6414b8510, type: 2}
+  grabPinchAction: {fileID: 0}
+  grabGripAction: {fileID: 0}
   hapticAction: {fileID: 11400000, guid: 1cf993681e9283844bab6ce2f9fdf446, type: 2}
-  uiInteractAction: {fileID: 11400000, guid: 0fa45d3040efa7b4593c38d27c55da58, type: 2}
+  uiInteractAction: {fileID: 0}
   useHoverSphere: 1
   hoverSphereTransform: {fileID: 4000012325712216}
   hoverSphereRadius: 0.075
@@ -1145,10 +1145,10 @@ MonoBehaviour:
   otherHand: {fileID: 0}
   handType: 0
   trackedObject: {fileID: 0}
-  grabPinchAction: {fileID: 11400000, guid: e1e61673f75f08e4ea4f1415449c2b48, type: 2}
-  grabGripAction: {fileID: 11400000, guid: 29b47b1dec0472243ac7deb6414b8510, type: 2}
+  grabPinchAction: {fileID: 0}
+  grabGripAction: {fileID: 0}
   hapticAction: {fileID: 11400000, guid: 1cf993681e9283844bab6ce2f9fdf446, type: 2}
-  uiInteractAction: {fileID: 11400000, guid: 0fa45d3040efa7b4593c38d27c55da58, type: 2}
+  uiInteractAction: {fileID: 0}
   useHoverSphere: 1
   hoverSphereTransform: {fileID: 0}
   hoverSphereRadius: 0.05

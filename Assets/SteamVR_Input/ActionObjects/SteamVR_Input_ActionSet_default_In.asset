@@ -14,28 +14,14 @@ MonoBehaviour:
   actionSet: {fileID: 0}
   listDirection: 0
   actions:
-  - {fileID: 11400000, guid: 0fa45d3040efa7b4593c38d27c55da58, type: 2}
-  - {fileID: 11400000, guid: 52dd690bf64ba6040936751f948ec0c4, type: 2}
-  - {fileID: 11400000, guid: e1e61673f75f08e4ea4f1415449c2b48, type: 2}
-  - {fileID: 11400000, guid: 29b47b1dec0472243ac7deb6414b8510, type: 2}
   - {fileID: 11400000, guid: 38f016b65c379a04d9716b18ad0d1461, type: 2}
-  - {fileID: 11400000, guid: 012af0b6f13750d4f8e418b51bf2317e, type: 2}
-  - {fileID: 11400000, guid: b9815b49384a09842b1cdda4882dcf1d, type: 2}
-  - {fileID: 11400000, guid: 0d0471f0f60f32c4481e06d55db4d08f, type: 2}
   - {fileID: 11400000, guid: 67097956a21ea534789cbd53cb0d38df, type: 2}
   - {fileID: 11400000, guid: 5532fc8d7cf774746980360fdcaede12, type: 2}
   - {fileID: 11400000, guid: 71ad2f15a5cc09d46aadf1f9a3ea2a87, type: 2}
   - {fileID: 11400000, guid: 1d6cc90a1839c5d4c8310bf1f20fdf25, type: 2}
   - {fileID: 11400000, guid: bbdba3c2998ace641b19511b970fc021, type: 2}
   - {fileID: 11400000, guid: 9260c76b7000a7b4fa58b77cfa88aec0, type: 2}
-  InteractUI: {fileID: 11400000, guid: 0fa45d3040efa7b4593c38d27c55da58, type: 2}
-  Teleport: {fileID: 11400000, guid: 52dd690bf64ba6040936751f948ec0c4, type: 2}
-  GrabPinch: {fileID: 11400000, guid: e1e61673f75f08e4ea4f1415449c2b48, type: 2}
-  GrabGrip: {fileID: 11400000, guid: 29b47b1dec0472243ac7deb6414b8510, type: 2}
   Pose: {fileID: 11400000, guid: 38f016b65c379a04d9716b18ad0d1461, type: 2}
-  SkeletonLeftHand: {fileID: 11400000, guid: 012af0b6f13750d4f8e418b51bf2317e, type: 2}
-  SkeletonRightHand: {fileID: 11400000, guid: b9815b49384a09842b1cdda4882dcf1d, type: 2}
-  Squeeze: {fileID: 11400000, guid: 0d0471f0f60f32c4481e06d55db4d08f, type: 2}
   XPress: {fileID: 11400000, guid: 67097956a21ea534789cbd53cb0d38df, type: 2}
   YPress: {fileID: 11400000, guid: 5532fc8d7cf774746980360fdcaede12, type: 2}
   PoseJL: {fileID: 11400000, guid: 71ad2f15a5cc09d46aadf1f9a3ea2a87, type: 2}
