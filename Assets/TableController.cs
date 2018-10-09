@@ -34,11 +34,11 @@ public class TableController : MonoBehaviour {
         }
         if (Valve.VR.SteamVR_Input._default.inActions.XPress.GetState(Valve.VR.SteamVR_Input_Sources.Any)) {
             controlled_object.rotation = Quaternion.Euler(controlled_object.rotation.eulerAngles.x, controlled_object.rotation.eulerAngles.y + 0.05f, controlled_object.rotation.eulerAngles.z);
-            Debug.Log(controlled_object.rotation);
+            Debug.Log(controlled_object.rotation.eulerAngles);
         }
         if (Valve.VR.SteamVR_Input._default.inActions.ZPress.GetState(Valve.VR.SteamVR_Input_Sources.Any)) {
             controlled_object.rotation = Quaternion.Euler(controlled_object.rotation.eulerAngles.x, controlled_object.rotation.eulerAngles.y - 0.05f, controlled_object.rotation.eulerAngles.z);
-            Debug.Log(controlled_object.rotation);
+            Debug.Log(controlled_object.rotation.eulerAngles);
         }
     }
 }

@@ -87,8 +87,8 @@ public class PositionController : MonoBehaviour {
             }
 
             // Set the rotation and scale from the info
-            new_object.transform.eulerAngles = new Vector3(0, info.rotation, 0);
-            new_object.transform.localScale += new Vector3(info.scale_x, info.scale_y, info.scale_z);
+            new_object.transform.eulerAngles = new Vector3(new_object.transform.eulerAngles.x, info.rotation, new_object.transform.eulerAngles.z);
+            new_object.transform.localScale = new Vector3(info.scale_x, info.scale_y, info.scale_z);
 
             // Add the object to the tracked game objects class
             tracked_game_objects.Add(new_object.gameObject);
