@@ -1,6 +1,10 @@
 {
   "experiments": [
     {
+      "data": [],
+      "show_hands": true
+    },
+    {
       "data": [
         {
           "x_offset": 0.2,
