@@ -61,7 +61,7 @@ public class PositionController : MonoBehaviour {
         // Get the information of the moving balls
         MovingBallInfo[] object_infos = experiment_info[current_index].data;
         error_model.UpdateKinectPosition(experiment_info[current_index].kinect_x_offset, experiment_info[current_index].kinect_y_offset, experiment_info[current_index].kinect_z_offset);
-        
+
 
         // Construct the object
         foreach (MovingBallInfo info in object_infos) {
@@ -96,8 +96,15 @@ public class PositionController : MonoBehaviour {
 
             // Add the object to the tracked game objects class
             tracked_game_objects.Add(new_object.gameObject);
+            addErrors(new_object);
         }
 
+    }
+    void addErrors(MovingBall m) {
+        float error_std_x = error_model.GetErrorStdX(m);
+        float error_std_y = error_model.GetErrorStdY(m);
+        float error_std_z = error_model.GetErrorStdZ(m);
+        Debug.Log(System.String.Format("Errors: X: %.3f, Y: %.3f, Z: %.3f " , error_std_x, error_std_y, error_std_z));
     }
 
     void loadData() {
