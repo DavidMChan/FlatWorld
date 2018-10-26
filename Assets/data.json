@@ -1,8 +1,11 @@
-{
+{ 
   "experiments": [
     {
       "data": [],
-      "show_hands": true
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 20.0
     },
     {
       "data": [
@@ -18,7 +21,10 @@
           "wireframe": false
         }
       ],
-      "show_hands": true
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 20.0
     },
     {
       "data": [
@@ -34,7 +40,10 @@
           "wireframe": true
         }
       ],
-      "show_hands": true
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 20.0
     },
     {
       "data": [
@@ -50,7 +59,10 @@
           "wireframe": false
         }
       ],
-      "show_hands": true
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 20.0
     },
     {
       "data": [
@@ -66,7 +78,10 @@
           "wireframe": true
         }
       ],
-      "show_hands": true
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 20.0
     },
     {
       "data": [
@@ -82,7 +97,10 @@
           "wireframe": false
         }
       ],
-      "show_hands": true
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 20.0
     },
     {
       "data": [
@@ -98,7 +116,10 @@
           "wireframe": true
         }
       ],
-      "show_hands": true
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 20.0
     }
   ]
 }

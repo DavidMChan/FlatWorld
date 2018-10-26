@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ErrorModel {
 
-    public ErrorModel(float kinect_x_offset, float kinect_y_offset, float kinect_z_offset) {
+    public void UpdateKinectPosition(float kinect_x_offset, float kinect_y_offset, float kinect_z_offset) {
         this.kinect_x_offset = kinect_x_offset;
         this.kinect_y_offset = kinect_y_offset;
         this.kinect_z_offset = kinect_z_offset;

@@ -9,6 +9,8 @@ public class PositionController : MonoBehaviour {
 
     public ExperimentInfo[] experiment_info;
 
+    private ErrorModel error_model;
+
     private List<GameObject> tracked_game_objects;
     public MovingBall[] object_samples;
 
@@ -58,6 +60,8 @@ public class PositionController : MonoBehaviour {
 
         // Get the information of the moving balls
         MovingBallInfo[] object_infos = experiment_info[current_index].data;
+        error_model.UpdateKinectPosition(experiment_info[current_index].kinect_x_offset, experiment_info[current_index].kinect_y_offset, experiment_info[current_index].kinect_z_offset);
+        
 
         // Construct the object
         foreach (MovingBallInfo info in object_infos) {
