@@ -13,6 +13,7 @@ public class PositionController : MonoBehaviour {
 
     private List<GameObject> tracked_game_objects;
     public MovingBall[] object_samples;
+    public MovingBall error_sample;
 
     public GameObject hand_model_l;
     public GameObject hand_model_r;
@@ -96,7 +97,9 @@ public class PositionController : MonoBehaviour {
 
             // Add the object to the tracked game objects class
             tracked_game_objects.Add(new_object.gameObject);
+
             addErrors(new_object);
+
         }
 
     }
@@ -105,6 +108,11 @@ public class PositionController : MonoBehaviour {
         float error_std_y = error_model.GetErrorStdY(m);
         float error_std_z = error_model.GetErrorStdZ(m);
         Debug.Log(System.String.Format("Errors: X: %.3f, Y: %.3f, Z: %.3f " , error_std_x, error_std_y, error_std_z));
+
+        // Sample error object
+        MovingBall error_object = Instantiate(error_sample);
+        error_object.SetWireframe();
+        error_object.transform.localScale = new Vector3(error_std_x, error_std_y, error_std_z);
     }
 
     void loadData() {
