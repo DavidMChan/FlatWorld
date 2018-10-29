@@ -3,7 +3,15 @@ guid: 2a0023db40da48c45a447ce1d0c82914
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - table: {instanceID: 0}
+  - error_sample: {fileID: 114266022538352218, guid: 9239973fb0865dd4889bda376de7a575,
+      type: 2}
+  - hand_model_l: {instanceID: 0}
+  - hand_model_r: {instanceID: 0}
+  - save_sound: {instanceID: 0}
+  - toggle_sound: {instanceID: 0}
+  - wireframe_material: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
