@@ -36,6 +36,7 @@ public class PositionController : MonoBehaviour {
 
         // positions = new List<List<Vector3>>();
         tracked_game_objects = new List<GameObject>();
+        error_model = new ErrorModel();
 
         // Load the data and objects into the scene.
         loadData();
@@ -97,22 +98,27 @@ public class PositionController : MonoBehaviour {
 
             // Add the object to the tracked game objects class
             tracked_game_objects.Add(new_object.gameObject);
-
-            addErrors(new_object);
+            if (experiment_info[current_index].show_error) { 
+                tracked_game_objects.Add(addErrors(new_object).gameObject);
+            }
 
         }
 
     }
-    void addErrors(MovingBall m) {
+    MovingBall addErrors(MovingBall m) {
         float error_std_x = error_model.GetErrorStdX(m);
         float error_std_y = error_model.GetErrorStdY(m);
         float error_std_z = error_model.GetErrorStdZ(m);
-        Debug.Log(System.String.Format("Errors: X: %.3f, Y: %.3f, Z: %.3f " , error_std_x, error_std_y, error_std_z));
+        Debug.LogFormat("Errors: X: {0}, Y: {1}, Z: {2}" , error_std_x, error_std_y, error_std_z);
 
         // Sample error object
         MovingBall error_object = Instantiate(error_sample);
         error_object.SetWireframe();
+        error_object.x_offset = m.x_offset;
+        error_object.y_offset = m.y_offset;
+        error_object.z_offset = m.z_offset;
         error_object.transform.localScale = new Vector3(error_std_x, error_std_y, error_std_z);
+        return error_object;
     }
 
     void loadData() {
@@ -122,10 +128,10 @@ public class PositionController : MonoBehaviour {
         {
             // Read the json from the file into a string
             string dataAsJson = File.ReadAllText(filePath);
-            // Pass the json to JsonUtility, and tell it to create a GameData object from it
+            // Pass the json to JsonUtility, and tell it to create a StudyInfo object from it
             StudyInfo loadedData = JsonUtility.FromJson<StudyInfo>(dataAsJson);
 
-            // Retrieve the allRoundData property of loadedData
+            // Retrieve the experiments property of loadedData
             experiment_info = loadedData.experiments;
         }
         else
