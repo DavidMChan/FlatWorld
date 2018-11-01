@@ -10,6 +10,8 @@ public class HandTracker : MonoBehaviour {
     public Material _sphere_material;
     public Material _cyl_material;
 
+    private Mesh _sphereMesh = null;
+
     [System.Serializable]
     public class Drawable : System.Object {
         public virtual void Draw() {
@@ -21,24 +23,27 @@ public class HandTracker : MonoBehaviour {
     public class Sphere : Drawable {
         public Vector3 position;
         public float radius;
-        public Mesh mesh;
+
+        [System.NonSerialized]
         public Material material;
+        
         public float lossy_x;
-        public Sphere(Vector3 p, float r, Mesh m, Material mat, float lx) {
+        public Sphere(Vector3 p, float r, Material mat, float lx) {
             this.position = p;
             this.radius = r;
-            this.mesh = m;
             this.material = mat;
             this.lossy_x = lx;
         }
 
         public override void Draw() {
-            Graphics.DrawMesh(this.mesh,
-                        Matrix4x4.TRS(position,
-                                      Quaternion.identity,
-                                      Vector3.one * radius * 2.0f * this.lossy_x),
-                        this.material, 0,
-                        null, 0, null, true);
+            if (_sphereMesh != null) {
+                Graphics.DrawMesh(_sphereMesh,
+                            Matrix4x4.TRS(position,
+                                          Quaternion.identity,
+                                          Vector3.one * radius * 2.0f * this.lossy_x),
+                            this.material, 0,
+                            null, 0, null, true);
+            }
         }
     }
 
@@ -46,15 +51,15 @@ public class HandTracker : MonoBehaviour {
     public class Cylinder : Drawable {
         public Vector3 position_a;
         public Vector3 position_b;
-        public Mesh mesh;
+        public float length;
         public Material material;
         public float lossy_x;
         public float lossy_y;
         public int layer;
-        public Cylinder(Vector3 p, Vector3 q, Mesh m, Material mat, float lx, float ly, int l) {
+        public Cylinder(Vector3 p, Vector3 q, float length, Material mat, float lx, float ly, int l) {
             this.position_a = p;
             this.position_b = q;
-            this.mesh = m;
+            this.length = length;
             this.material = mat;
             this.lossy_x = lx;
             this.lossy_y = ly;
@@ -62,7 +67,7 @@ public class HandTracker : MonoBehaviour {
         }
 
         public override void Draw() {
-            Graphics.DrawMesh(this.mesh,
+            Graphics.DrawMesh(Leap.Unity.CapsuleHand.getCylinderMesh(this.length),
                         Matrix4x4.TRS(this.position_a,
                                       Quaternion.LookRotation(this.position_b - this.position_a),
                                       new Vector3(this.lossy_x, this.lossy_x, 1)),
@@ -72,23 +77,27 @@ public class HandTracker : MonoBehaviour {
         }
     }
 
+    public void SetSphereMesh(Mesh sphereMesh) {
+        this._sphereMesh = sphereMesh;
+    }
+
 
     public void RegisterSphere(string key, Vector3 position, float radius, Leap.Unity.Chirality c, float lossy_x, Mesh m) {
         if (c == Leap.Unity.Chirality.Left) {
             // Add to the left hand
-            left_hand[key] = new Sphere(position, radius, m, _sphere_material, lossy_x);
+            left_hand[key] = new Sphere(position, radius, _sphere_material, lossy_x);
         } else {
             // Add to the right hand
-            right_hand[key] = new Sphere(position, radius, m, _sphere_material, lossy_x);
+            right_hand[key] = new Sphere(position, radius, _sphere_material, lossy_x);
         }
     }
-    public void RegisterCylinder(string key, Vector3 pos_a, Vector3 pos_b, Leap.Unity.Chirality c, int layer, float lossy_x, float lossy_y, Mesh m) {
+    public void RegisterCylinder(string key, Vector3 pos_a, Vector3 pos_b, Leap.Unity.Chirality c, int layer, float lossy_x, float lossy_y, float length) {
         if (c == Leap.Unity.Chirality.Left) {
             // Add to the left hand
-            left_hand[key] = new Cylinder(pos_a, pos_b, m, _cyl_material, lossy_x, lossy_y, layer);
+            left_hand[key] = new Cylinder(pos_a, pos_b, length, _cyl_material, lossy_x, lossy_y, layer);
         } else {
             // Add to the right hand
-            right_hand[key] = new Cylinder(pos_a, pos_b, m, _cyl_material, lossy_x, lossy_y, layer);
+            right_hand[key] = new Cylinder(pos_a, pos_b, length, _cyl_material, lossy_x, lossy_y, layer);
         }
     }
 

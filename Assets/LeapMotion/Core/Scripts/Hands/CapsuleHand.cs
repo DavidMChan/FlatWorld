@@ -112,7 +112,7 @@ namespace Leap.Unity {
 
      // Register the hand tracker
      HandTracker tracker = GameObject.FindGameObjectWithTag("hand_tracker").GetComponent<HandTracker>();
-
+     tracker.SetSphereMesh(_sphereMesh);
       if (_spherePositions == null || _spherePositions.Length != TOTAL_JOINT_COUNT) {
         _spherePositions = new Vector3[TOTAL_JOINT_COUNT];
       }
@@ -230,7 +230,7 @@ namespace Leap.Unity {
      return _sphereMesh;
     }
 
-    private Mesh drawCylinder(Vector3 a, Vector3 b) {
+    private float drawCylinder(Vector3 a, Vector3 b) {
       float length = (a - b).magnitude;
       Mesh cyl_mesh = getCylinderMesh(length);
       Graphics.DrawMesh(cyl_mesh, 
@@ -240,14 +240,14 @@ namespace Leap.Unity {
                         _material,
                         gameObject.layer, 
                         null, 0, null, _castShadows);
-      return cyl_mesh;
+      return length;
     }
 
-    private Mesh drawCylinder(int a, int b) {
+    private float drawCylinder(int a, int b) {
       return drawCylinder(_spherePositions[a], _spherePositions[b]);
     }
 
-    private Mesh drawCylinder(Vector3 a, int b) {
+    private float drawCylinder(Vector3 a, int b) {
       return drawCylinder(a, _spherePositions[b]);
     }
 
@@ -256,7 +256,7 @@ namespace Leap.Unity {
     }
 
     private Dictionary<int, Mesh> _meshMap = new Dictionary<int, Mesh>();
-    private Mesh getCylinderMesh(float length) {
+    public static Mesh getCyFlinderMesh(float length) {
       int lengthKey = Mathf.RoundToInt(length * 100 / CYLINDER_MESH_RESOLUTION);
 
       Mesh mesh;
