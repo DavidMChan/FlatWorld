@@ -28,7 +28,7 @@
           "handPath": "Assets/hand.json"
         }
       ],
-      "hand_type": "hand",
+      "hand_type": "leap",
       "show_hands": true,
       "kinect_x_offset": 0.0,
       "kinect_y_offset": 0.0,

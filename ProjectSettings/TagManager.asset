@@ -9,6 +9,7 @@ TagManager:
   - FxTemporaire
   - position_controller
   - hand_tracker
+  - capsule_hand
   layers:
   - Default
   - TransparentFX
