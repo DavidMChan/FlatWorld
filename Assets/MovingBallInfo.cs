@@ -17,4 +17,7 @@ public class MovingBallInfo {
     public float scale_z;
 
     public bool wireframe;
+    public bool show_error;
+
+    public string handPath;
 }

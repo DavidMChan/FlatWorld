@@ -60,29 +60,47 @@ public class PositionController : MonoBehaviour {
             hand_model_l.SetActive(false);
         }
 
+
         // Get the information of the moving balls
         MovingBallInfo[] object_infos = experiment_info[current_index].data;
         error_model.UpdateKinectPosition(experiment_info[current_index].kinect_x_offset, experiment_info[current_index].kinect_y_offset, experiment_info[current_index].kinect_z_offset);
 
-
         // Construct the object
         foreach (MovingBallInfo info in object_infos) {
-            MovingBall ref_object = null;
-            if (info.type == "sphere") {
-                ref_object = object_samples[0];
-            } else if (info.type == "cylinder") {
-                ref_object = object_samples[1];
-            } else if (info.type == "cube") {
-                ref_object = object_samples[2];
-            } else if (info.type == "flat-cylinder") {
-                ref_object = object_samples[3];
-            } else {
+            // Instantiate the new object based on the reference object
+            MovingBall new_object = null;
+            if (info.type == "sphere")
+            {
+                new_object = Instantiate(object_samples[0]);
+            }
+            else if (info.type == "cylinder")
+            {
+                new_object = Instantiate(object_samples[1]);
+            }
+            else if (info.type == "cube")
+            {
+                new_object = Instantiate(object_samples[2]);
+            }
+            else if (info.type == "flat-cylinder")
+            {
+                new_object = Instantiate(object_samples[3]);
+            }
+            else if (info.type == "hand")
+            {
+                HandTracker.Hand h = HandTracker.LoadHand(info.handPath);
+                h._sphere_material = GameObject.FindGameObjectWithTag("hand_tracker").GetComponent<HandTracker>()._sphere_material;
+                h._cyl_material = GameObject.FindGameObjectWithTag("hand_tracker").GetComponent<HandTracker>()._cyl_material;
+                new_object = Instantiate(object_samples[4]);
+                new_object.GetComponent<HandMovingBall>().h = h;
+
+                // ref_object = object_samples[4];
+            }
+            else
+            {
                 Debug.Log("Error. Invalid object type.");
                 continue;
             }
 
-            // Instantiate the new object based on the reference object
-            MovingBall new_object = Instantiate(ref_object);
 
             // Set the x, y and z offset from the info
             new_object.x_offset = info.x_offset;
@@ -91,14 +109,14 @@ public class PositionController : MonoBehaviour {
             if (info.wireframe) {
                 new_object.SetWireframe();
             }
-
+            
             // Set the rotation and scale from the info
             new_object.transform.eulerAngles = new Vector3(new_object.transform.eulerAngles.x, info.rotation, new_object.transform.eulerAngles.z);
             new_object.transform.localScale = new Vector3(info.scale_x, info.scale_y, info.scale_z);
-
+            
             // Add the object to the tracked game objects class
             tracked_game_objects.Add(new_object.gameObject);
-            if (experiment_info[current_index].show_error) { 
+            if (info.show_error) { 
                 tracked_game_objects.Add(addErrors(new_object).gameObject);
             }
 
@@ -147,6 +165,12 @@ public class PositionController : MonoBehaviour {
             current_index = (current_index + 1) % experiment_info.Length;
             updateObjects();
             toggle_sound.PlayOneShot(toggle_sound.clip);
+        }
+
+
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag("capsule_hand"))
+        {
+            g.GetComponent<Leap.Unity.CapsuleHand>().draw = experiment_info[current_index].hand_type;
         }
     }
 }

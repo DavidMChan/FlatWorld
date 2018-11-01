@@ -1,20 +1,49 @@
 ﻿using System.Collections;
+using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HandTracker : MonoBehaviour {
 
-    Dictionary<string, Drawable> left_hand;
-    Dictionary<string, Drawable> right_hand;
+    Dictionary<string, Drawable> left_hand = new Dictionary<string, Drawable>();
+    Dictionary<string, Drawable> right_hand = new Dictionary<string, Drawable>();
 
     public Material _sphere_material;
     public Material _cyl_material;
+    
 
-    private Mesh _sphereMesh = null;
+    public static Mesh _sphereMesh = null;
+    public Mesh m;
+
+    [System.Serializable]
+    public class Hand
+    {
+        [System.NonSerialized]
+        public Material _sphere_material;
+        [System.NonSerialized]
+        public Material _cyl_material;
+
+        public List<Sphere> spheres = new List<Sphere>();
+        public List<Cylinder> cylinders = new List<Cylinder>();
+
+        public void Draw(Matrix4x4 trs)
+        {
+            foreach (Sphere s in spheres)
+            {
+                s.material = _sphere_material;
+                s.Draw(trs);
+            }
+            foreach (Cylinder c in cylinders)
+            {
+                c.material = _cyl_material;
+                c.Draw(trs);
+            }
+        }
+    }
 
     [System.Serializable]
     public class Drawable : System.Object {
-        public virtual void Draw() {
+        public virtual void Draw(Matrix4x4 trs) {
             return;
         }
     }
@@ -35,10 +64,10 @@ public class HandTracker : MonoBehaviour {
             this.lossy_x = lx;
         }
 
-        public override void Draw() {
+        public override void Draw(Matrix4x4 trs) {
             if (_sphereMesh != null) {
                 Graphics.DrawMesh(_sphereMesh,
-                            Matrix4x4.TRS(position,
+                            trs * Matrix4x4.TRS(position,
                                           Quaternion.identity,
                                           Vector3.one * radius * 2.0f * this.lossy_x),
                             this.material, 0,
@@ -52,7 +81,10 @@ public class HandTracker : MonoBehaviour {
         public Vector3 position_a;
         public Vector3 position_b;
         public float length;
+
+        [System.NonSerialized]
         public Material material;
+
         public float lossy_x;
         public float lossy_y;
         public int layer;
@@ -66,9 +98,9 @@ public class HandTracker : MonoBehaviour {
             this.layer = l;
         }
 
-        public override void Draw() {
-            Graphics.DrawMesh(Leap.Unity.CapsuleHand.getCylinderMesh(this.length),
-                        Matrix4x4.TRS(this.position_a,
+        public override void Draw(Matrix4x4 trs) {
+            Graphics.DrawMesh(Leap.Unity.CapsuleHand.getCylinderMeshStatic(this.length),
+                        trs * Matrix4x4.TRS(this.position_a,
                                       Quaternion.LookRotation(this.position_b - this.position_a),
                                       new Vector3(this.lossy_x, this.lossy_x, 1)),
                         this.material,
@@ -77,8 +109,45 @@ public class HandTracker : MonoBehaviour {
         }
     }
 
+    private void SaveHand(Leap.Unity.Chirality c)
+    {   
+        Dictionary<string, Drawable> save_dict; 
+         if (c == Leap.Unity.Chirality.Left)
+        {
+            save_dict = left_hand;
+        } else
+        {
+            save_dict = right_hand;
+        }
+
+        Hand h = new Hand();
+        Vector3 offset_pos = (save_dict["palm"] as Sphere).position;
+        foreach (KeyValuePair<string, Drawable> kvp in save_dict)
+        {   
+            if (kvp.Value is Sphere)
+            {
+                Sphere s = kvp.Value as Sphere;
+                s.position -= offset_pos;
+                h.spheres.Add(s);
+            } else
+            {
+                Cylinder cyl = kvp.Value as Cylinder;
+                cyl.position_a -= offset_pos;
+                cyl.position_b -= offset_pos;
+                h.cylinders.Add(cyl);
+            }
+
+        }
+        string json_hand = JsonUtility.ToJson(h, true);
+
+        string sceneDataFileName = "hand.json";
+        string filePath = Path.Combine(Application.dataPath, sceneDataFileName);
+
+        File.WriteAllText(filePath, json_hand);
+    }
+
     public void SetSphereMesh(Mesh sphereMesh) {
-        this._sphereMesh = sphereMesh;
+        _sphereMesh = sphereMesh;
     }
 
 
@@ -103,17 +172,31 @@ public class HandTracker : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        left_hand = new Dictionary<string, Drawable>();
-        right_hand = new Dictionary<string, Drawable>();
-	}
+        _sphereMesh = m;
+        string sceneDataFileName = "hand.json";
+        string filePath = Path.Combine(Application.dataPath, sceneDataFileName);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+    }
+
+    public static Hand LoadHand(string filePath)
+    {
+        string dataAsJson = File.ReadAllText(filePath);
+        return JsonUtility.FromJson<Hand>(dataAsJson);
+    }
 
     void LateUpdate() {
-
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            SaveHand(Leap.Unity.Chirality.Left);
+            Debug.Log("Yay!! Saved left hand.");
+        } else if (Input.GetKeyDown(KeyCode.H)) 
+        {
+            SaveHand(Leap.Unity.Chirality.Right);
+            Debug.Log("Yay!! Saved right hand.");
+        }
         // Check if the data should be saved, if so - write out the hand somehow
         // TODO: Somehow save the dictionary of joit positions so we can 
         // draw it again later. I've hacked the class so that we sort this out, but it's going to be tricky to 

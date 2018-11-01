@@ -11,114 +11,28 @@
           "scale_x": 0.1,
           "scale_y": 0.08,
           "scale_z": 0.1,
+          "show_error": true,
           "wireframe": false
+        },
+        {
+          "x_offset": 0,
+          "y_offset": 0,
+          "z_offset": 0,
+          "rotation": 0.0,
+          "type": "hand",
+          "scale_x": 10,
+          "scale_y": 10,
+          "scale_z": 10,
+          "show_error": false,
+          "wireframe": false,
+          "handPath": "Assets/hand.json"
         }
       ],
-      "show_error": true,
+      "hand_type": "hand",
       "show_hands": true,
       "kinect_x_offset": 0.0,
       "kinect_y_offset": 0.0,
       "kinect_z_offset": 0.0
-    },
-    {
-      "data": [
-        {
-          "x_offset": 0.2,
-          "y_offset": 0.1,
-          "z_offset": -0.73,
-          "rotation": 0.0,
-          "type": "cylinder",
-          "scale_x": 0.35,
-          "scale_y": 0.08,
-          "scale_z": 0.35,
-          "wireframe": true
-        }
-      ],
-      "show_error": true,
-      "show_hands": true,
-      "kinect_x_offset": 0.0,
-      "kinect_y_offset": 0.0,
-      "kinect_z_offset": 20.0
-    },
-    {
-      "data": [
-        {
-          "x_offset": 0.215,
-          "y_offset": 0.076,
-          "z_offset": -0.814,
-          "rotation": 23.8,
-          "type": "cube",
-          "scale_x": 0.205,
-          "scale_y": 0.06,
-          "scale_z": 0.235,
-          "wireframe": false
-        }
-      ],
-      "show_error": true,
-      "show_hands": true,
-      "kinect_x_offset": 0.0,
-      "kinect_y_offset": 0.0,
-      "kinect_z_offset": 20.0
-    },
-    {
-      "data": [
-        {
-          "x_offset": 0.215,
-          "y_offset": 0.076,
-          "z_offset": -0.814,
-          "rotation": 23.8,
-          "type": "cube",
-          "scale_x": 0.41,
-          "scale_y": 0.06,
-          "scale_z": 0.47,
-          "wireframe": true
-        }
-      ],
-      "show_error": true,
-      "show_hands": true,
-      "kinect_x_offset": 0.0,
-      "kinect_y_offset": 0.0,
-      "kinect_z_offset": 20.0
-    },
-    {
-      "data": [
-        {
-          "x_offset": 0.21,
-          "y_offset": 0.07,
-          "z_offset": -0.76,
-          "rotation": 116.8,
-          "type": "flat-cylinder",
-          "scale_x": 0.013,
-          "scale_y": 0.065,
-          "scale_z": 0.013,
-          "wireframe": false
-        }
-      ],
-      "show_error": true,
-      "show_hands": true,
-      "kinect_x_offset": 0.0,
-      "kinect_y_offset": 0.0,
-      "kinect_z_offset": 20.0
-    },
-    {
-      "data": [
-        {
-          "x_offset": 0.2,
-          "y_offset": 0.1,
-          "z_offset": -0.73,
-          "rotation": 0.0,
-          "type": "cylinder",
-          "scale_x": 0.35,
-          "scale_y": 0.08,
-          "scale_z": 0.35,
-          "wireframe": true
-        }
-      ],
-      "show_error": true,
-      "show_hands": true,
-      "kinect_x_offset": 0.0,
-      "kinect_y_offset": 0.0,
-      "kinect_z_offset": 20.0
     }
   ]
 }

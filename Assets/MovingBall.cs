@@ -13,7 +13,7 @@ public class MovingBall : MonoBehaviour {
 
     void Awake()
     {
-        this.table = GameObject.FindGameObjectWithTag("table").transform;
+        //this.table = GameObject.FindGameObjectWithTag("table").transform;
     }
 
     public void SetWireframe() {
@@ -21,7 +21,7 @@ public class MovingBall : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    protected virtual void Update() {
         // Set the position offset vs the table
         Vector3 current_position = table.position;
         this.gameObject.transform.position = new Vector3(x_offset + current_position.x, y_offset + current_position.y, z_offset + current_position.z);
