@@ -109,6 +109,10 @@ namespace Leap.Unity {
     }
 
     public override void UpdateHand() {
+
+     // Register the hand tracker
+     HandTracker tracker = GameObject.FindGameObjectWithTag("hand_tracker").GetComponent<HandTracker>();
+
       if (_spherePositions == null || _spherePositions.Length != TOTAL_JOINT_COUNT) {
         _spherePositions = new Vector3[TOTAL_JOINT_COUNT];
       }
@@ -125,8 +129,9 @@ namespace Leap.Unity {
 
           Vector3 position = finger.Bone((Bone.BoneType)j).NextJoint.ToVector3();
           _spherePositions[key] = position;
-
-          drawSphere(position);
+          
+          //drawSphere(position)
+          tracker.RegisterSphere(System.String.Format("finger_{0}",key), position, _jointRadius, handedness, transform.lossyScale.x, drawSphere(position));
         }
       }
 
@@ -134,11 +139,13 @@ namespace Leap.Unity {
       //PalmPos, WristPos, and mockThumbJointPos, which is derived and not taken from the frame obj
 
       Vector3 palmPosition = _hand.PalmPosition.ToVector3();
-      drawSphere(palmPosition, _palmRadius);
+      //drawSphere(palmPosition, _palmRadius)
+      tracker.RegisterSphere("palm", palmPosition, _palmRadius, handedness, transform.lossyScale.x, drawSphere(palmPosition, _palmRadius));
 
       Vector3 thumbBaseToPalm = _spherePositions[THUMB_BASE_INDEX] - _hand.PalmPosition.ToVector3();
       Vector3 mockThumbJointPos = _hand.PalmPosition.ToVector3() + Vector3.Reflect(thumbBaseToPalm, _hand.Basis.xBasis.ToVector3());
-      drawSphere(mockThumbJointPos);
+      //drawSphere(mockThumbJointPos)
+      tracker.RegisterSphere("thumb", mockThumbJointPos, _jointRadius, handedness, transform.lossyScale.x, drawSphere(mockThumbJointPos));
 
       //If we want to show the arm, do the calculations and display the meshes
       if (_showArm) {
@@ -155,16 +162,24 @@ namespace Leap.Unity {
         Vector3 armFrontLeft = wrist - right;
         Vector3 armBackRight = elbow + right;
         Vector3 armBackLeft = elbow - right;
+        
+        //drawSphere(armFrontRight)
+        //drawSphere(armFrontLeft)
+        //drawSphere(armBackLeft)
+        //drawSphere(armBackRight)
+        tracker.RegisterSphere("arm_front_right", armFrontRight, _jointRadius, handedness, transform.lossyScale.x, drawSphere(armFrontRight));
+        tracker.RegisterSphere("arm_front_left", armFrontLeft, _jointRadius, handedness, transform.lossyScale.x, drawSphere(armFrontLeft));
+        tracker.RegisterSphere("arm_back_left", armBackLeft, _jointRadius, handedness, transform.lossyScale.x, drawSphere(armBackLeft));
+        tracker.RegisterSphere("arm_back_right", armBackRight, _jointRadius, handedness, transform.lossyScale.x, drawSphere(armBackRight));
 
-        drawSphere(armFrontRight);
-        drawSphere(armFrontLeft);
-        drawSphere(armBackLeft);
-        drawSphere(armBackRight);
-
-        drawCylinder(armFrontLeft, armFrontRight);
-        drawCylinder(armBackLeft, armBackRight);
-        drawCylinder(armFrontLeft, armBackLeft);
-        drawCylinder(armFrontRight, armBackRight);
+        //drawCylinder(armFrontLeft, armFrontRight);
+        //drawCylinder(armBackLeft, armBackRight);
+        //drawCylinder(armFrontLeft, armBackLeft);
+        //drawCylinder(armFrontRight, armBackRight);
+        tracker.RegisterCylinder("bone_arm_front_lr", armFrontLeft, armFrontRight, handedness, gameObject.layer, transform.lossyScale.x, transform.lossyScale.y, drawCylinder(armFrontLeft, armFrontRight));
+        tracker.RegisterCylinder("bone_arm_back_lr", armBackLeft, armBackRight, handedness, gameObject.layer, transform.lossyScale.x, transform.lossyScale.y, drawCylinder(armBackLeft, armBackRight));
+        tracker.RegisterCylinder("bone_arm_fb_ll", armFrontLeft, armBackLeft, handedness, gameObject.layer, transform.lossyScale.x, transform.lossyScale.y, drawCylinder(armFrontLeft, armBackLeft));
+        tracker.RegisterCylinder("bone_arm_fb_rr", armFrontRight, armBackRight, handedness, gameObject.layer, transform.lossyScale.x, transform.lossyScale.y, drawCylinder(armFrontRight, armBackRight));
       }
 
       //Draw cylinders between finger joints
@@ -176,7 +191,8 @@ namespace Leap.Unity {
           Vector3 posA = _spherePositions[keyA];
           Vector3 posB = _spherePositions[keyB];
 
-          drawCylinder(posA, posB);
+          //drawCylinder(posA, posB);
+          tracker.RegisterCylinder(System.String.Format("finger_cyl_{0}_{1}", keyA, keyB), posA, posB, handedness, gameObject.layer, transform.lossyScale.x, transform.lossyScale.y, drawCylinder(posA, posB));
         }
       }
 
@@ -188,19 +204,22 @@ namespace Leap.Unity {
         Vector3 posA = _spherePositions[keyA];
         Vector3 posB = _spherePositions[keyB];
 
-        drawCylinder(posA, posB);
+        //drawCylinder(posA, posB);
+        tracker.RegisterCylinder(System.String.Format("knuckle_{0}_{1}", keyA, keyB), posA, posB, handedness, gameObject.layer, transform.lossyScale.x, transform.lossyScale.y, drawCylinder(posA, posB));
       }
 
       //Draw the rest of the hand
-      drawCylinder(mockThumbJointPos, THUMB_BASE_INDEX);
-      drawCylinder(mockThumbJointPos, PINKY_BASE_INDEX);
+      //drawCylinder(mockThumbJointPos, THUMB_BASE_INDEX);
+      tracker.RegisterCylinder("thumb_base", mockThumbJointPos, _spherePositions[THUMB_BASE_INDEX], handedness, gameObject.layer, transform.lossyScale.x, transform.lossyScale.y, drawCylinder(mockThumbJointPos, THUMB_BASE_INDEX));
+      //drawCylinder(mockThumbJointPos, PINKY_BASE_INDEX);
+      tracker.RegisterCylinder("pinky_base", mockThumbJointPos, _spherePositions[PINKY_BASE_INDEX], handedness, gameObject.layer, transform.lossyScale.x, transform.lossyScale.y, drawCylinder(mockThumbJointPos, PINKY_BASE_INDEX));
     }
 
-    private void drawSphere(Vector3 position) {
-      drawSphere(position, _jointRadius);
+    private Mesh drawSphere(Vector3 position) {
+      return drawSphere(position, _jointRadius);
     }
 
-    private void drawSphere(Vector3 position, float radius) {
+    private Mesh drawSphere(Vector3 position, float radius) {
       //multiply radius by 2 because the default unity sphere has a radius of 0.5 meters at scale 1.
       Graphics.DrawMesh(_sphereMesh, 
                         Matrix4x4.TRS(position, 
@@ -208,26 +227,28 @@ namespace Leap.Unity {
                                       Vector3.one * radius * 2.0f * transform.lossyScale.x), 
                         _sphereMat, 0, 
                         null, 0, null, _castShadows);
+     return _sphereMesh;
     }
 
-    private void drawCylinder(Vector3 a, Vector3 b) {
+    private Mesh drawCylinder(Vector3 a, Vector3 b) {
       float length = (a - b).magnitude;
-
-      Graphics.DrawMesh(getCylinderMesh(length),
+      Mesh cyl_mesh = getCylinderMesh(length);
+      Graphics.DrawMesh(cyl_mesh, 
                         Matrix4x4.TRS(a, 
                                       Quaternion.LookRotation(b - a), 
                                       new Vector3(transform.lossyScale.x, transform.lossyScale.x, 1)),
                         _material,
                         gameObject.layer, 
                         null, 0, null, _castShadows);
+      return cyl_mesh;
     }
 
-    private void drawCylinder(int a, int b) {
-      drawCylinder(_spherePositions[a], _spherePositions[b]);
+    private Mesh drawCylinder(int a, int b) {
+      return drawCylinder(_spherePositions[a], _spherePositions[b]);
     }
 
-    private void drawCylinder(Vector3 a, int b) {
-      drawCylinder(a, _spherePositions[b]);
+    private Mesh drawCylinder(Vector3 a, int b) {
+      return drawCylinder(a, _spherePositions[b]);
     }
 
     private int getFingerJointIndex(int fingerIndex, int jointIndex) {

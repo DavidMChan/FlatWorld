@@ -8,6 +8,7 @@ TagManager:
   - projectile
   - FxTemporaire
   - position_controller
+  - hand_tracker
   layers:
   - Default
   - TransparentFX
