@@ -21,7 +21,69 @@
       "kinect_y_offset": 0.0,
       "kinect_z_offset": 0.0
     },
-
+    {
+      "data": [
+        {
+          "x_offset": 0.105,
+          "y_offset": 0.05,
+          "z_offset": -0.8,
+          "rotation": 240.0,
+          "type": "controller",
+          "scale_x": 0.001,
+          "scale_y": 0.001,
+          "scale_z": 0.001,
+          "show_error": true,
+          "wireframe": false
+        }
+      ],
+      "hand_type": "tracker",
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 0.0
+    },
+    {
+      "data": [
+        {
+          "x_offset": 0.105,
+          "y_offset": 0.05,
+          "z_offset": -0.8,
+          "rotation": 240.0,
+          "type": "controller",
+          "scale_x": 0.001,
+          "scale_y": 0.001,
+          "scale_z": 0.001,
+          "show_error": true,
+          "wireframe": false
+        }
+      ],
+      "hand_type": "cont",
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 0.0
+    },
+    {
+      "data": [
+        {
+          "x_offset": 0.105,
+          "y_offset": 0.05,
+          "z_offset": -0.8,
+          "rotation": 240.0,
+          "type": "controller",
+          "scale_x": 0.001,
+          "scale_y": 0.001,
+          "scale_z": 0.001,
+          "show_error": true,
+          "wireframe": false
+        }
+      ],
+      "hand_type": "ghostcont",
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 0.0
+    },
     {
       "data": [
         {
@@ -43,7 +105,69 @@
       "kinect_y_offset": 0.0,
       "kinect_z_offset": 0.0
     },
-
+    {
+      "data": [
+        {
+          "x_offset": 0.2,
+          "y_offset": 0.1,
+          "z_offset": -0.73,
+          "rotation": 0.0,
+          "type": "cylinder",
+          "scale_x": 0.1,
+          "scale_y": 0.08,
+          "scale_z": 0.1,
+          "wireframe": false,
+          "show_error": true
+        }
+      ],
+      "hand_type": "tracker",
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 0.0
+    },
+    {
+      "data": [
+        {
+          "x_offset": 0.2,
+          "y_offset": 0.1,
+          "z_offset": -0.73,
+          "rotation": 0.0,
+          "type": "cylinder",
+          "scale_x": 0.1,
+          "scale_y": 0.08,
+          "scale_z": 0.1,
+          "wireframe": false,
+          "show_error": true
+        }
+      ],
+      "hand_type": "cup",
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 0.0
+    },
+    {
+      "data": [
+        {
+          "x_offset": 0.2,
+          "y_offset": 0.1,
+          "z_offset": -0.73,
+          "rotation": 0.0,
+          "type": "cylinder",
+          "scale_x": 0.1,
+          "scale_y": 0.08,
+          "scale_z": 0.1,
+          "wireframe": false,
+          "show_error": true
+        }
+      ],
+      "hand_type": "ghostcup",
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 0.0
+    },
     {
       "data": [
         {
@@ -60,6 +184,69 @@
         }
       ],
       "hand_type": "leap",
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 0.0
+    },
+    {
+      "data": [
+        {
+          "x_offset": 0.215,
+          "y_offset": 0.076,
+          "z_offset": -0.814,
+          "rotation": 23.8,
+          "type": "cube",
+          "scale_x": 0.205,
+          "scale_y": 0.06,
+          "scale_z": 0.235,
+          "wireframe": false,
+          "show_error": true
+        }
+      ],
+      "hand_type": "tracker",
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 0.0
+    },
+    {
+      "data": [
+        {
+          "x_offset": 0.215,
+          "y_offset": 0.076,
+          "z_offset": -0.814,
+          "rotation": 23.8,
+          "type": "cube",
+          "scale_x": 0.205,
+          "scale_y": 0.06,
+          "scale_z": 0.235,
+          "wireframe": false,
+          "show_error": true
+        }
+      ],
+      "hand_type": "book",
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 0.0
+    },
+    {
+      "data": [
+        {
+          "x_offset": 0.215,
+          "y_offset": 0.076,
+          "z_offset": -0.814,
+          "rotation": 23.8,
+          "type": "cube",
+          "scale_x": 0.205,
+          "scale_y": 0.06,
+          "scale_z": 0.235,
+          "wireframe": false,
+          "show_error": true
+        }
+      ],
+      "hand_type": "ghostbook",
       "show_hands": true,
       "kinect_x_offset": 0.0,
       "kinect_y_offset": 0.0,
