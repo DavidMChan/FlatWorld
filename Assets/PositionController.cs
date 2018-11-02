@@ -166,16 +166,18 @@ public class PositionController : MonoBehaviour {
             updateObjects();
             toggle_sound.PlayOneShot(toggle_sound.clip);
         }
-
-
         
     }
 
     void LateUpdate ()
     {
-        foreach (GameObject g in GameObject.FindGameObjectsWithTag("capsule_hand"))
+       if (experiment_info.Length > 0)
         {
-            g.GetComponent<Leap.Unity.CapsuleHand>().draw = experiment_info[current_index].hand_type;
+            foreach (GameObject g in GameObject.FindGameObjectsWithTag("capsule_hand"))
+            {
+                g.GetComponent<Leap.Unity.CapsuleHand>().draw = experiment_info[current_index].hand_type;
+            }
         }
+        
     }
 }

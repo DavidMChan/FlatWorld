@@ -1,0 +1,341 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1443380906268092}
+  m_IsPrefabAsset: 1
+--- !u!1 &1443380906268092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4539477797468548}
+  - component: {fileID: 114673106811843178}
+  - component: {fileID: 23251971696169050}
+  - component: {fileID: 114444842527801130}
+  m_Layer: 0
+  m_Name: Rbook 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4539477797468548
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443380906268092}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23251971696169050
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443380906268092}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!114 &114444842527801130
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443380906268092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0708df2541f36804f81eca2e8c7a46c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: book
+--- !u!114 &114673106811843178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443380906268092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d80bd0a38632a4ab86a78c3b6fc3b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  table: {fileID: 0}
+  y_offset: 0
+  x_offset: 0
+  z_offset: 0
+  is_wireframe: 0
+  update_table: 0
+  h:
+    spheres:
+    - position: {x: 0.011352688, y: 0.024500847, z: -0.051198393}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: 0.0017519444, y: 0.0587101, z: -0.017354041}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: -0.008913621, y: 0.07880342, z: 0.006856799}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: -0.018531516, y: 0.08526456, z: 0.019974977}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: 0.006558731, y: 0.01891619, z: 0.027410805}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: -0.0149899125, y: 0.029960692, z: 0.0616211}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: -0.03613457, y: 0.038858414, z: 0.0666509}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: -0.047587566, y: 0.043253064, z: 0.06311557}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: 0.00029747188, y: -0.0013887882, z: 0.024784058}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: -0.02888032, y: 0.008629978, z: 0.0601269}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: -0.053218037, y: 0.021643281, z: 0.06218812}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: -0.06386913, y: 0.028515816, z: 0.0561634}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: -0.0068366975, y: -0.019625187, z: 0.015309185}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: -0.037641555, y: -0.015299737, z: 0.04539907}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: -0.061247513, y: -0.004835129, z: 0.052317113}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: -0.07290034, y: 0.0025291443, z: 0.050772637}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: -0.015069805, y: -0.034795523, z: 0.0039866865}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: -0.0416333, y: -0.03478688, z: 0.025864512}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: -0.05803605, y: -0.02789259, z: 0.032097846}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: -0.0684313, y: -0.020334661, z: 0.032637388}
+      radius: 0.008
+      lossy_x: 1.0000001
+    - position: {x: 0, y: 0, z: 0}
+      radius: 0.015
+      lossy_x: 1.0000001
+    - position: {x: -0.0010235757, y: -0.010188699, z: -0.056970105}
+      radius: 0.008
+      lossy_x: 1
+    - position: {x: 0.014455482, y: -0.022516072, z: -0.08732998}
+      radius: 0.008
+      lossy_x: 1
+    - position: {x: 0.02922152, y: 0.01820594, z: -0.08124408}
+      radius: 0.008
+      lossy_x: 1
+    - position: {x: 0.112592, y: 0.023087323, z: -0.31618476}
+      radius: 0.008
+      lossy_x: 1
+    - position: {x: 0.09782599, y: -0.01763469, z: -0.32227066}
+      radius: 0.008
+      lossy_x: 1
+    cylinders:
+    - position_a: {x: 0.02922152, y: 0.01820594, z: -0.08124408}
+      position_b: {x: 0.014455482, y: -0.022516072, z: -0.08732998}
+      length: 0.04374193
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: 0.112592, y: 0.023087323, z: -0.31618476}
+      position_b: {x: 0.09782599, y: -0.01763469, z: -0.32227066}
+      length: 0.04374192
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: 0.02922152, y: 0.01820594, z: -0.08124408}
+      position_b: {x: 0.112592, y: 0.023087323, z: -0.31618476}
+      length: 0.2493423
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: 0.014455482, y: -0.022516072, z: -0.08732998}
+      position_b: {x: 0.09782599, y: -0.01763469, z: -0.32227066}
+      length: 0.2493423
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: 0.011352688, y: 0.024500847, z: -0.051198393}
+      position_b: {x: 0.0017519444, y: 0.0587101, z: -0.017354041}
+      length: 0.049070228
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: 0.0017519444, y: 0.0587101, z: -0.017354041}
+      position_b: {x: -0.008913621, y: 0.07880342, z: 0.006856799}
+      length: 0.03322139
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: -0.008913621, y: 0.07880342, z: 0.006856799}
+      position_b: {x: -0.018531516, y: 0.08526456, z: 0.019974977}
+      length: 0.017502481
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: 0.006558731, y: 0.01891619, z: 0.027410805}
+      position_b: {x: -0.0149899125, y: 0.029960692, z: 0.0616211}
+      length: 0.04191264
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: -0.0149899125, y: 0.029960692, z: 0.0616211}
+      position_b: {x: -0.03613457, y: 0.038858414, z: 0.0666509}
+      length: 0.023485418
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: -0.03613457, y: 0.038858414, z: 0.0666509}
+      position_b: {x: -0.047587566, y: 0.043253064, z: 0.06311557}
+      length: 0.012766465
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: 0.00029747188, y: -0.0013887882, z: 0.024784058}
+      position_b: {x: -0.02888032, y: 0.008629978, z: 0.0601269}
+      length: 0.04691307
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: -0.02888032, y: 0.008629978, z: 0.0601269}
+      position_b: {x: -0.053218037, y: 0.021643281, z: 0.06218812}
+      length: 0.027675243
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: -0.053218037, y: 0.021643281, z: 0.06218812}
+      position_b: {x: -0.06386913, y: 0.028515816, z: 0.0561634}
+      length: 0.014034772
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: -0.0068366975, y: -0.019625187, z: 0.015309185}
+      position_b: {x: -0.037641555, y: -0.015299737, z: 0.04539907}
+      length: 0.043278746
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: -0.037641555, y: -0.015299737, z: 0.04539907}
+      position_b: {x: -0.061247513, y: -0.004835129, z: 0.052317113}
+      length: 0.026732164
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: -0.061247513, y: -0.004835129, z: 0.052317113}
+      position_b: {x: -0.07290034, y: 0.0025291443, z: 0.050772637}
+      length: 0.01387106
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: -0.015069805, y: -0.034795523, z: 0.0039866865}
+      position_b: {x: -0.0416333, y: -0.03478688, z: 0.025864512}
+      length: 0.03441306
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: -0.0416333, y: -0.03478688, z: 0.025864512}
+      position_b: {x: -0.05803605, y: -0.02789259, z: 0.032097846}
+      length: 0.018853009
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: -0.05803605, y: -0.02789259, z: 0.032097846}
+      position_b: {x: -0.0684313, y: -0.020334661, z: 0.032637388}
+      length: 0.012863695
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: 0.011352688, y: 0.024500847, z: -0.051198393}
+      position_b: {x: 0.006558731, y: 0.01891619, z: 0.027410805}
+      length: 0.078953005
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: 0.006558731, y: 0.01891619, z: 0.027410805}
+      position_b: {x: 0.00029747188, y: -0.0013887882, z: 0.024784058}
+      length: 0.021410167
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: 0.00029747188, y: -0.0013887882, z: 0.024784058}
+      position_b: {x: -0.0068366975, y: -0.019625187, z: 0.015309185}
+      length: 0.021753985
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: -0.0068366975, y: -0.019625187, z: 0.015309185}
+      position_b: {x: -0.015069805, y: -0.034795523, z: 0.0039866865}
+      length: 0.020642726
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: -0.0010235757, y: -0.010188699, z: -0.056970105}
+      position_b: {x: 0.011352688, y: 0.024500847, z: -0.051198393}
+      length: 0.03728068
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+    - position_a: {x: -0.0010235757, y: -0.010188699, z: -0.056970105}
+      position_b: {x: -0.015069805, y: -0.034795523, z: 0.0039866865}
+      length: 0.06721996
+      lossy_x: 1
+      lossy_y: 1
+      layer: 0
+  material: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}

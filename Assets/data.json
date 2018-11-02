@@ -2,31 +2,7 @@
   "experiments": [
     {
       "data": [
-        {
-          "x_offset": 0.2,
-          "y_offset": 0.1,
-          "z_offset": -0.73,
-          "rotation": 0.0,
-          "type": "cylinder",
-          "scale_x": 0.1,
-          "scale_y": 0.08,
-          "scale_z": 0.1,
-          "show_error": true,
-          "wireframe": false
-        },
-        {
-          "x_offset": 0,
-          "y_offset": 0,
-          "z_offset": 0,
-          "rotation": 0.0,
-          "type": "hand",
-          "scale_x": 10,
-          "scale_y": 10,
-          "scale_z": 10,
-          "show_error": false,
-          "wireframe": false,
-          "handPath": "Assets/hand.json"
-        }
+        
       ],
       "hand_type": "leap",
       "show_hands": true,

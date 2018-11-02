@@ -140,9 +140,9 @@ public class HandTracker : MonoBehaviour {
         }
         string json_hand = JsonUtility.ToJson(h, true);
 
-        string sceneDataFileName = "hand.json";
+        string sceneDataFileName = "hand_" + System.DateTime.UtcNow.Millisecond.ToString() + ".json";
         string filePath = Path.Combine(Application.dataPath, sceneDataFileName);
-
+        Debug.Log(sceneDataFileName);
         File.WriteAllText(filePath, json_hand);
     }
 
@@ -173,8 +173,6 @@ public class HandTracker : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         _sphereMesh = m;
-        string sceneDataFileName = "hand.json";
-        string filePath = Path.Combine(Application.dataPath, sceneDataFileName);
     }
 	
 	// Update is called once per frame

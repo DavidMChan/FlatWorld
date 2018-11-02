@@ -262,7 +262,9 @@ namespace Leap.Unity {
     }
 
     private Dictionary<int, Mesh> _meshMap = new Dictionary<int, Mesh>();
-    private Mesh getCylinderMesh(float length)
+
+    private static Dictionary<int, Mesh> _meshMapStatic = new Dictionary<int, Mesh>();
+        private Mesh getCylinderMesh(float length)
     {
         int lengthKey = Mathf.RoundToInt(length * 100 / CYLINDER_MESH_RESOLUTION);
 
@@ -323,9 +325,13 @@ namespace Leap.Unity {
       float _cylinderRadius = 0.006f;
       int _cylinderResolution = 12;
       Mesh mesh;
-
-      mesh = new Mesh();
+        if (_meshMapStatic.TryGetValue(lengthKey, out mesh))
+        {
+            return mesh;
+        }
+        mesh = new Mesh();
       mesh.name = "GeneratedCylinder";
+
       mesh.hideFlags = HideFlags.DontSave;
 
       List<Vector3> verts = new List<Vector3>();
@@ -364,9 +370,10 @@ namespace Leap.Unity {
       mesh.RecalculateBounds();
       mesh.RecalculateNormals();
       mesh.UploadMeshData(true);
-            
 
-      return mesh;
+      _meshMapStatic[lengthKey] = mesh;
+
+        return mesh;
     }
   }
 }
