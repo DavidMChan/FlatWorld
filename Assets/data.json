@@ -2,7 +2,18 @@
   "experiments": [
     {
       "data": [
-        
+        {
+          "x_offset": 0,
+          "y_offset": 0.5,
+          "z_offset": 0,
+          "rotation": 0.0,
+          "type": "controller",
+          "scale_x": 1,
+          "scale_y": 1,
+          "scale_z": 1,
+          "show_error": false,
+          "wireframe": false
+        }
       ],
       "hand_type": "leap",
       "show_hands": true,

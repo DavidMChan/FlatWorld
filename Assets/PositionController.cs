@@ -94,6 +94,10 @@ public class PositionController : MonoBehaviour {
                 new_object.GetComponent<HandMovingBall>().h = h;
 
                 // ref_object = object_samples[4];
+            } 
+            else if (info.type == "controller")
+            {
+                new_object = Instantiate(object_samples[5]);
             }
             else
             {
