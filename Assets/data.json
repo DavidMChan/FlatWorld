@@ -8,10 +8,10 @@
           "z_offset": 0,
           "rotation": 0.0,
           "type": "controller",
-          "scale_x": 1,
-          "scale_y": 1,
-          "scale_z": 1,
-          "show_error": false,
+          "scale_x": 0.001,
+          "scale_y": 0.001,
+          "scale_z": 0.001,
+          "show_error": true,
           "wireframe": false
         }
       ],
