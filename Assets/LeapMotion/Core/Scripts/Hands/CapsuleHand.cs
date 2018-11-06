@@ -31,7 +31,7 @@ namespace Leap.Unity {
     private Chirality handedness;
 
     [SerializeField]
-    private bool _showArm = true;
+    private bool _showArm = false;
 
     [SerializeField]
     private bool _castShadows = true;
@@ -222,7 +222,21 @@ namespace Leap.Unity {
 
     private Mesh drawSphere(Vector3 position, float radius) {
             //multiply radius by 2 because the default unity sphere has a radius of 0.5 meters at scale 1.
-        if (this.draw.Equals("leap")) { 
+
+        bool ghost = false;
+        try
+        {
+            // see if this is a ghost case!
+            if (this.draw.Substring(0, 5).Equals("ghost"))
+            {
+                ghost = true;
+            }
+        }
+        catch (System.ArgumentOutOfRangeException e)
+        {
+            //lol
+        }
+            if (this.draw.Equals("leap") || ghost) { 
                 Graphics.DrawMesh(_sphereMesh,
                         Matrix4x4.TRS(position,
                                       Quaternion.identity,
@@ -236,8 +250,21 @@ namespace Leap.Unity {
     private float drawCylinder(Vector3 a, Vector3 b) {
       float length = (a - b).magnitude;
       Mesh cyl_mesh = getCylinderMesh(length);
-        if (this.draw.Equals("leap"))
-        {
+            bool ghost = false;
+            try
+            {
+                // see if this is a ghost case!
+                if (this.draw.Substring(0, 5).Equals("ghost"))
+                {
+                    ghost = true;
+                }
+            }
+            catch (System.ArgumentOutOfRangeException e)
+            {
+                //lol
+            }
+            if (this.draw.Equals("leap") || ghost)
+            {
             Graphics.DrawMesh(cyl_mesh,
                                 Matrix4x4.TRS(a,
                                             Quaternion.LookRotation(b - a),

@@ -2,6 +2,46 @@
   "experiments": [
     {
       "data": [
+        
+      ],
+      "hand_type": "leap",
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 0.0
+    },
+    {
+      "data": [
+       
+      ],
+      "hand_type": "tracker",
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 0.0
+    },
+    {
+      "data": [
+      
+      ],
+      "hand_type": "cont",
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 0.0
+    },
+    {
+      "data": [
+        
+      ],
+      "hand_type": "ghostcont",
+      "show_hands": true,
+      "kinect_x_offset": 0.0,
+      "kinect_y_offset": 0.0,
+      "kinect_z_offset": 0.0
+    },
+    {
+      "data": [
         {
           "x_offset": 0.105,
           "y_offset": 0.05,
@@ -93,7 +133,7 @@
           "rotation": 0.0,
           "type": "cylinder",
           "scale_x": 0.1,
-          "scale_y": 0.08,
+          "scale_y": 0.16,
           "scale_z": 0.1,
           "wireframe": false,
           "show_error": true
@@ -114,7 +154,7 @@
           "rotation": 0.0,
           "type": "cylinder",
           "scale_x": 0.1,
-          "scale_y": 0.08,
+          "scale_y": 0.16,
           "scale_z": 0.1,
           "wireframe": false,
           "show_error": true
@@ -135,7 +175,7 @@
           "rotation": 0.0,
           "type": "cylinder",
           "scale_x": 0.1,
-          "scale_y": 0.08,
+          "scale_y": 0.16,
           "scale_z": 0.1,
           "wireframe": false,
           "show_error": true
@@ -156,7 +196,7 @@
           "rotation": 0.0,
           "type": "cylinder",
           "scale_x": 0.1,
-          "scale_y": 0.08,
+          "scale_y": 0.16,
           "scale_z": 0.1,
           "wireframe": false,
           "show_error": true
