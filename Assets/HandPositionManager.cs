@@ -6,6 +6,9 @@ public class HandPositionManager : MonoBehaviour {
 
     public bool from_leap = true;
 
+    public Vector3 position;
+    public Vector3 rotation;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -14,10 +17,13 @@ public class HandPositionManager : MonoBehaviour {
 	// Update is called once per frame
     void Update () {
         if (from_leap) {
-            this.gameObject.transform.position = this.gameObject.GetComponent<Leap.Unity.CapsuleHand>().palm_position;
+            this.position = this.gameObject.GetComponent<Leap.Unity.CapsuleHand>().palm_position;
+            this.rotation = this.gameObject.GetComponent<Leap.Unity.CapsuleHand>().palm_rotation;
         } else {
-            this.gameObject.transform.position = GameObject.FindGameObjectWithTag("vive_tracker_hand").transform.position;
-        }
-		
+            this.position = GameObject.FindGameObjectWithTag("vive_tracker_hand").transform.position;
+            this.rotation = GameObject.FindGameObjectWithTag("vive_tracker_hand").transform.eulerAngles;
+        }	
+        this.gameObject.transform.position = postion;
+        this.gameObject.transform.eulerAngles = rotation;
 	}
 }

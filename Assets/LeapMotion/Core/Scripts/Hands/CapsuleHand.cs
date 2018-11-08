@@ -21,6 +21,7 @@ namespace Leap.Unity {
     private const int PINKY_BASE_INDEX = (int)Finger.FingerType.TYPE_PINKY * 4;
 
     public Vector3 palm_position;
+    public Vector3 palm_rotation;
 
     private static int _leftColorIndex = 0;
     private static int _rightColorIndex = 0;
@@ -143,8 +144,8 @@ namespace Leap.Unity {
 
       float pitch = - _hand.Direction.Pitch;
       float yaw = - _hand.Direction.Yaw;
-      float roll = _hand.PalmNormal.Roll;
-      this.gameObject.transform.eulerAngles = new Vector3(pitch, yaw, roll) * 180.0f/Mathf.PI ;
+      float roll = _hand.PalmNormal.Roll; 
+      this.palm_rotation = new Vector3(pitch, yaw, roll) * 180.0f/Mathf.PI ;
 
       Vector3 thumbBaseToPalm = _spherePositions[THUMB_BASE_INDEX] - _hand.PalmPosition.ToVector3();
       Vector3 mockThumbJointPos = _hand.PalmPosition.ToVector3() + Vector3.Reflect(thumbBaseToPalm, _hand.Basis.xBasis.ToVector3());
