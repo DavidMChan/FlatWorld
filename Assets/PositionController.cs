@@ -9,11 +9,13 @@ public class PositionController : MonoBehaviour {
 
     public ExperimentInfo[] experiment_info;
 
-    private ErrorModel error_model;
+    public ErrorModel error_model;
+    public float error_model_conversion_factor;
 
     private List<GameObject> tracked_game_objects;
     public MovingBall[] object_samples;
     public MovingBall error_sample;
+    public ProjectionError heatmap_error_sample;
 
     public GameObject hand_model_l;
     public GameObject hand_model_r;
@@ -21,6 +23,7 @@ public class PositionController : MonoBehaviour {
     // List<List<Vector3>> positions;
     public AudioSource save_sound;
     public AudioSource toggle_sound;
+    
 
     public Material wireframe_material;
 
@@ -36,7 +39,7 @@ public class PositionController : MonoBehaviour {
 
         // positions = new List<List<Vector3>>();
         tracked_game_objects = new List<GameObject>();
-        error_model = new ErrorModel();
+        error_model = new ErrorModel(error_model_conversion_factor);
 
         // Load the data and objects into the scene.
         loadData();
@@ -64,6 +67,11 @@ public class PositionController : MonoBehaviour {
         // Get the information of the moving balls
         MovingBallInfo[] object_infos = experiment_info[current_index].data;
         error_model.UpdateKinectPosition(experiment_info[current_index].kinect_x_offset, experiment_info[current_index].kinect_y_offset, experiment_info[current_index].kinect_z_offset);
+
+        // Set the hand tracking
+        foreach (HandPositionManager hp in GameObject.FindObjectsOfType<HandPositionManager>()) {
+            hp.from_leap = !experiment_info[current_index].use_vive_tracker;
+        }
 
         // Construct the object
         foreach (MovingBallInfo info in object_infos) {
@@ -104,6 +112,7 @@ public class PositionController : MonoBehaviour {
                 Debug.Log("Error. Invalid object type.");
                 continue;
             }
+            new_object.use_vive = info.enable_tracking;
 
 
             // Set the x, y and z offset from the info
@@ -120,27 +129,39 @@ public class PositionController : MonoBehaviour {
             
             // Add the object to the tracked game objects class
             tracked_game_objects.Add(new_object.gameObject);
-            if (info.show_error) { 
-                tracked_game_objects.Add(addErrors(new_object).gameObject);
+            if (info.show_error) {
+                tracked_game_objects.Add(addErrors(new_object, info.error_type));
             }
 
         }
 
     }
-    MovingBall addErrors(MovingBall m) {
+    GameObject addErrors(MovingBall m, string error_type) {
         float error_std_x = error_model.GetErrorStdX(m);
         float error_std_y = error_model.GetErrorStdY(m);
         float error_std_z = error_model.GetErrorStdZ(m);
-        Debug.LogFormat("Errors: X: {0}, Y: {1}, Z: {2}" , error_std_x, error_std_y, error_std_z);
+        Debug.LogFormat("Errors: X: {0}, Y: {1}, Z: {2}", error_std_x, error_std_y, error_std_z);
 
-        // Sample error object
-        MovingBall error_object = Instantiate(error_sample);
-        error_object.SetWireframe();
-        error_object.x_offset = m.x_offset;
-        error_object.y_offset = m.y_offset;
-        error_object.z_offset = m.z_offset;
-        error_object.transform.localScale = new Vector3(error_std_x, error_std_y, error_std_z);
-        return error_object;
+        if (error_type == "shell") {
+            // Sample error object
+            MovingBall error_object = Instantiate(error_sample);
+            error_object.SetWireframe();
+            error_object.x_offset = m.x_offset;
+            error_object.y_offset = m.y_offset;
+            error_object.z_offset = m.z_offset;
+            error_object.transform.localScale = new Vector3(error_std_x, error_std_y, error_std_z);
+            return error_object.gameObject;
+        } else if (error_type == "heatmap") {
+            ProjectionError er_obj = Instantiate<ProjectionError>(heatmap_error_sample);
+            er_obj.err_x = error_std_x;
+            er_obj.err_z = error_std_z;
+            er_obj.parent_object = m;
+            return er_obj.gameObject;
+        } else {
+            Debug.Log("You've fucked up.");
+        }
+
+        return null;
     }
 
     void loadData() {

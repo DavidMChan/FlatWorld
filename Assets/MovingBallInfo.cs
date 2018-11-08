@@ -20,4 +20,6 @@ public class MovingBallInfo {
     public bool show_error;
 
     public string handPath;
+    public string error_type;
+    public bool enable_tracking;
 }

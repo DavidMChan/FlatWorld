@@ -10,6 +10,7 @@ TagManager:
   - position_controller
   - hand_tracker
   - capsule_hand
+  - vive_tracker_object
   layers:
   - Default
   - TransparentFX

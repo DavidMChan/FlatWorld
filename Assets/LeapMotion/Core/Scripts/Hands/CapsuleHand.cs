@@ -20,6 +20,8 @@ namespace Leap.Unity {
     private const int THUMB_BASE_INDEX = (int)Finger.FingerType.TYPE_THUMB * 4;
     private const int PINKY_BASE_INDEX = (int)Finger.FingerType.TYPE_PINKY * 4;
 
+    public Vector3 palm_position;
+
     private static int _leftColorIndex = 0;
     private static int _rightColorIndex = 0;
     private static Color[] _leftColorList = { new Color(0.0f, 0.0f, 1.0f), new Color(0.2f, 0.0f, 0.4f), new Color(0.0f, 0.2f, 0.2f) };
@@ -136,8 +138,9 @@ namespace Leap.Unity {
       Vector3 palmPosition = _hand.PalmPosition.ToVector3();
       //drawSphere(palmPosition, _palmRadius)
       tracker.RegisterSphere("palm", palmPosition, _palmRadius, handedness, transform.lossyScale.x, drawSphere(palmPosition, _palmRadius));
+     
+      this.palm_position = palmPosition;
 
-      this.gameObject.transform.position = palmPosition;
       float pitch = - _hand.Direction.Pitch;
       float yaw = - _hand.Direction.Yaw;
       float roll = _hand.PalmNormal.Roll;

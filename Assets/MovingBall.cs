@@ -6,6 +6,7 @@ public class MovingBall : MonoBehaviour {
 
     public float speed = 0.01f;
     public Transform table;
+    public bool use_vive = true;
 
 
     public float y_offset = 0.0F, x_offset = 0.0F, z_offset = 0.0F;
@@ -21,10 +22,15 @@ public class MovingBall : MonoBehaviour {
     }
 
     // Update is called once per frame
-    protected virtual void Update() {
+    protected virtual void Update(){
+       
         if (update_table)
         {
-            this.table = GameObject.FindGameObjectWithTag("table").transform;
+            if (use_vive) {
+                this.table = GameObject.FindGameObjectWithTag("vive_tracker_object").transform;
+            } else {
+                this.table = GameObject.FindGameObjectWithTag("table").transform;
+            }
         }
         // Set the position offset vs the table
         Vector3 current_position = table.position;

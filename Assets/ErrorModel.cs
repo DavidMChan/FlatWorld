@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ErrorModel {
 
+    private float conversion_factor;
+
+    public ErrorModel(float factor) {
+        this.conversion_factor = factor;
+    }
     public void UpdateKinectPosition(float kinect_x_offset, float kinect_y_offset, float kinect_z_offset) {
         this.kinect_x_offset = kinect_x_offset;
         this.kinect_y_offset = kinect_y_offset;
@@ -14,6 +19,7 @@ public class ErrorModel {
     private float kinect_y_offset;
     private float kinect_z_offset;
 
+
     private static float[] x_betas = new float[] {0.63801f, 0.11225f, 0.0000035751f, -0.0040645f, -0.00014951f, 0.000070336f,
                                                     -5.6762f, -0.80153f, -0.0031496f, 0.012996f};
     private static float[] y_betas = new float[] {0.63038f, 0.26496f, 0.0000013279f, 0.015f, 0.000090174f, 0.00033417f,
@@ -22,15 +28,15 @@ public class ErrorModel {
                                                     -0.010002f, -0.010002f, -0.0015025f, 1.4515f};
 
     public float GetErrorStdX(MovingBall m) {
-        return ComputeError(m, x_betas);
+        return conversion_factor*ComputeError(m, x_betas);
     }
 
     public float GetErrorStdY(MovingBall m) {
-        return ComputeError(m, y_betas);
+        return conversion_factor*ComputeError(m, y_betas);
     }
 
     public float GetErrorStdZ(MovingBall m) {
-        return ComputeError(m, z_betas);
+        return conversion_factor*ComputeError(m, z_betas);
     }
 
     private float ComputeError(MovingBall m, float[] betas) {
