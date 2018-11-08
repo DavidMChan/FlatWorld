@@ -70,7 +70,7 @@ public class PositionController : MonoBehaviour {
 
         // Set the hand tracking
         foreach (HandPositionManager hp in GameObject.FindObjectsOfType<HandPositionManager>()) {
-            hp.from_leap = !experiment_info[current_index].use_vive_tracker;
+            hp.from_leap = !experiment_info[current_index].use_vive_tracker;s
         }
 
         // Construct the object
@@ -190,6 +190,7 @@ public class PositionController : MonoBehaviour {
             current_index = (current_index + 1) % experiment_info.Length;
             updateObjects();
             toggle_sound.PlayOneShot(toggle_sound.clip);
+            GameObject.FindGameObjectWithTag("logger").GetComponent<Logger>().Log("experiment_changed,"+ current_index.ToString());
         }
         
     }

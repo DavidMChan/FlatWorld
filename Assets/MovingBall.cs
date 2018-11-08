@@ -26,14 +26,21 @@ public class MovingBall : MonoBehaviour {
        
         if (update_table)
         {
+
             if (use_vive) {
                 this.table = GameObject.FindGameObjectWithTag("vive_tracker_object").transform;
+                Vector3 transform = this.gameObject.transform.position;
+                Vector3 rotation = this.gameObject.transform.eulerAngles;
+                GameObject.FindGameObjectWithTag("logger").GetComponent<Logger>().Log("object_6dof,"+ string.Join([transform.x.ToString(), transform.y.ToString(), transform.z.ToString(), rotation.x.ToString(), rotation.y.ToString(), rotation.z.ToString()] , ","));
             } else {
                 this.table = GameObject.FindGameObjectWithTag("table").transform;
             }
         }
+
+
         // Set the position offset vs the table
         Vector3 current_position = table.position;
         this.gameObject.transform.position = new Vector3(x_offset + current_position.x, y_offset + current_position.y, z_offset + current_position.z);
+      
     }
 }

@@ -25,5 +25,8 @@ public class HandPositionManager : MonoBehaviour {
         }	
         this.gameObject.transform.position = postion;
         this.gameObject.transform.eulerAngles = rotation;
+
+        GameObject.FindGameObjectWithTag("logger").GetComponent<Logger>().Log("hand_6dof,"+ string.Join([this.position.x.ToString(), this.position.y.ToString(), this.position.z.ToString(), this.rotation.x.ToString(), this.rotation.y.ToString(), this.rotation.z.ToString()] , ","));
+        
 	}
 }
