@@ -5,6 +5,8 @@ using UnityEngine;
 public class ErrorModel {
 
     private float conversion_factor;
+    private float x_factor = 0.1f / 1.66427f / 320.0f;
+    private float z_factor = 0.1f / 2.21475f / 260.0f;
 
     public ErrorModel(float factor) {
         this.conversion_factor = factor;
@@ -28,21 +30,22 @@ public class ErrorModel {
                                                     -0.010002f, -0.010002f, -0.0015025f, 1.4515f};
 
     public float GetErrorStdX(MovingBall m) {
-        return conversion_factor*ComputeError(m, x_betas);
+        return x_factor * ComputeError(m, x_betas);
     }
 
     public float GetErrorStdY(MovingBall m) {
-        return conversion_factor*ComputeError(m, y_betas);
+        return conversion_factor * ComputeError(m, z_betas);
     }
 
     public float GetErrorStdZ(MovingBall m) {
-        return conversion_factor*ComputeError(m, z_betas);
+        return z_factor * ComputeError(m, y_betas);
     }
 
     private float ComputeError(MovingBall m, float[] betas) {
-        float i = m.x_offset - this.kinect_x_offset;
-        float j = m.y_offset - this.kinect_y_offset;
-        float z = m.z_offset - this.kinect_z_offset;
+        float i = 0.0f; // m.x_offset - this.kinect_x_offset;
+        float z = (m.y_offset - this.kinect_y_offset) / conversion_factor;
+        float j = 0.0f; // m.z_offset - this.kinect_z_offset;
+        
 
         float ji = i * j;
         float iz = i * z;

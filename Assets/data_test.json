@@ -1,0 +1,20 @@
+{
+	"experiments": [
+		{
+			"data": [
+        {
+          "type": "cylinder",
+          "scale_x": 0.1,
+          "scale_y": 0.1,
+          "scale_z": 0.1,
+          "show_error": true,
+          "error_type": "heatmap",
+          "enable_tracking": true
+        }
+			],
+			"hand_type": "rcont",
+      "show_hands": true,
+      "use_vive_tracker": true
+		}
+	]
+}

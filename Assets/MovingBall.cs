@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovingBall : MonoBehaviour {
 
     public float speed = 0.01f;
+    public Vector3 size;
     public Transform table;
     public bool use_vive = true;
 
@@ -31,7 +32,19 @@ public class MovingBall : MonoBehaviour {
                 this.table = GameObject.FindGameObjectWithTag("vive_tracker_object").transform;
                 Vector3 transform = this.gameObject.transform.position;
                 Vector3 rotation = this.gameObject.transform.eulerAngles;
-                GameObject.FindGameObjectWithTag("logger").GetComponent<Logger>().Log("object_6dof,"+ string.Join([transform.x.ToString(), transform.y.ToString(), transform.z.ToString(), rotation.x.ToString(), rotation.y.ToString(), rotation.z.ToString()] , ","));
+
+                string[] data =
+                {
+                    transform.x.ToString(),
+                    transform.y.ToString(),
+                    transform.z.ToString(),
+                    rotation.x.ToString(),
+                    rotation.y.ToString(),
+                    rotation.z.ToString()
+                };
+
+                GameObject.FindGameObjectWithTag("logger").GetComponent<CSVLogger>().Log("object_6dof,"+ string.Join(",", data));
+                this.gameObject.transform.eulerAngles = this.table.eulerAngles;
             } else {
                 this.table = GameObject.FindGameObjectWithTag("table").transform;
             }
@@ -41,6 +54,11 @@ public class MovingBall : MonoBehaviour {
         // Set the position offset vs the table
         Vector3 current_position = table.position;
         this.gameObject.transform.position = new Vector3(x_offset + current_position.x, y_offset + current_position.y, z_offset + current_position.z);
-      
+        MeshRenderer mr = this.GetComponent<MeshRenderer>();
+        if (!mr)
+        {
+            mr = this.GetComponentInChildren<MeshRenderer>();
+        }
+        size = mr.bounds.size;
     }
 }

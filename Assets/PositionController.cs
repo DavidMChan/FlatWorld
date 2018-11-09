@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine;
 
 public class PositionController : MonoBehaviour {
-
+    public string sceneDataFileName;
     public Transform table;
 
     public ExperimentInfo[] experiment_info;
@@ -14,7 +14,7 @@ public class PositionController : MonoBehaviour {
 
     private List<GameObject> tracked_game_objects;
     public MovingBall[] object_samples;
-    public MovingBall error_sample;
+    public ProjectionError error_sample;
     public ProjectionError heatmap_error_sample;
 
     public GameObject hand_model_l;
@@ -70,7 +70,7 @@ public class PositionController : MonoBehaviour {
 
         // Set the hand tracking
         foreach (HandPositionManager hp in GameObject.FindObjectsOfType<HandPositionManager>()) {
-            hp.from_leap = !experiment_info[current_index].use_vive_tracker;s
+            hp.from_leap = !experiment_info[current_index].use_vive_tracker;
         }
 
         // Construct the object
@@ -141,31 +141,28 @@ public class PositionController : MonoBehaviour {
         float error_std_y = error_model.GetErrorStdY(m);
         float error_std_z = error_model.GetErrorStdZ(m);
         Debug.LogFormat("Errors: X: {0}, Y: {1}, Z: {2}", error_std_x, error_std_y, error_std_z);
-
+        ProjectionError error_object = null;
         if (error_type == "shell") {
             // Sample error object
-            MovingBall error_object = Instantiate(error_sample);
-            error_object.SetWireframe();
-            error_object.x_offset = m.x_offset;
-            error_object.y_offset = m.y_offset;
-            error_object.z_offset = m.z_offset;
-            error_object.transform.localScale = new Vector3(error_std_x, error_std_y, error_std_z);
-            return error_object.gameObject;
+            error_object = Instantiate<ProjectionError>(error_sample);
+           
         } else if (error_type == "heatmap") {
-            ProjectionError er_obj = Instantiate<ProjectionError>(heatmap_error_sample);
-            er_obj.err_x = error_std_x;
-            er_obj.err_z = error_std_z;
-            er_obj.parent_object = m;
-            return er_obj.gameObject;
+            error_object = Instantiate<ProjectionError>(heatmap_error_sample);
+           
+            
         } else {
             Debug.Log("You've fucked up.");
+            return null;
         }
-
-        return null;
+        error_object.parent_object = m;
+        error_object.err_x = error_std_x;
+        error_object.err_y = error_std_y;
+        error_object.err_z = error_std_z;
+        error_object.error_type = error_type;
+        return error_object.gameObject;
     }
 
     void loadData() {
-        string sceneDataFileName = "data.json";
         string filePath = Path.Combine(Application.dataPath, sceneDataFileName);
         if(File.Exists(filePath))
         {
@@ -190,7 +187,7 @@ public class PositionController : MonoBehaviour {
             current_index = (current_index + 1) % experiment_info.Length;
             updateObjects();
             toggle_sound.PlayOneShot(toggle_sound.clip);
-            GameObject.FindGameObjectWithTag("logger").GetComponent<Logger>().Log("experiment_changed,"+ current_index.ToString());
+            GameObject.FindGameObjectWithTag("logger").GetComponent<CSVLogger>().Log("experiment_changed,"+ current_index.ToString());
         }
         
     }
