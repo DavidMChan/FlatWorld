@@ -50,10 +50,8 @@ public class MovingBall : MonoBehaviour {
 
                 GameObject.FindGameObjectWithTag("logger").GetComponent<CSVLogger>().Log("object_6dof,"+ string.Join(",", data));
                 Vector3 current_rotation = renderedObject.eulerAngles;
-                Debug.Log("BEFORE: " + this.gameObject.transform.eulerAngles);
-                this.gameObject.transform.eulerAngles = new Vector3(current_rotation.x + xrot_offset, current_rotation.y + yrot_offset, current_rotation.z + zrot_offset);
-                this.gameObject.transform.Rotate(new Vector3(1, 0, 0), 90f, Space.Self);
-                Debug.Log("AFTER: " + this.gameObject.transform.eulerAngles);
+                this.gameObject.transform.eulerAngles = new Vector3(current_rotation.x, current_rotation.y, current_rotation.z);
+                this.gameObject.transform.Rotate(xrot_offset, yrot_offset, zrot_offset, Space.Self);
             } else {
                 this.renderedObject = GameObject.FindGameObjectWithTag("table").transform;
             }

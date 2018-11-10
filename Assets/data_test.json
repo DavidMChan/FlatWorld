@@ -7,6 +7,7 @@
           "scale_x": 0.1,
           "scale_y": 0.1,
           "scale_z": 0.1,
+          "xrot_offset": 90.0,
           "show_error": true,
           "error_type": "heatmap",
           "enable_tracking": true
