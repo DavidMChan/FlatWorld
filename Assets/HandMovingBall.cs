@@ -23,22 +23,18 @@ public class HandMovingBall : MovingBall {
 
     void Start()
     {
-      
-        
+        StartCoroutine(LateStart(1.1f));
     }
 
     void Awake()
     {
     }
-	
-	// Update is called once per frame
-	protected override void Update () {
-        string partname = this.transform.parent.GetComponent<Leap.Unity.CapsuleHand>().draw;
-        bool ghost = false;
-        bool fromLeap = this.transform.parent.GetComponent<HandPositionManager>().from_leap;
+    IEnumerator LateStart(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
         if (!update_table)
         {
-            
+            bool fromLeap = this.transform.parent.GetComponent<HandPositionManager>().from_leap;
             if (fromLeap)
             {
                 this.gameObject.transform.localEulerAngles = leap_rotations;
@@ -47,8 +43,15 @@ public class HandMovingBall : MovingBall {
             {
                 this.gameObject.transform.localEulerAngles = vive_rotations;
             }
-            
+
         }
+    }
+
+    // Update is called once per frame
+    protected override void Update () {
+        string partname = this.transform.parent.GetComponent<Leap.Unity.CapsuleHand>().draw;
+        bool ghost = false;
+      
         try
         {
             // see if this is a ghost case!

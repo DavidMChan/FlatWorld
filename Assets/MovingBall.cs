@@ -6,11 +6,14 @@ public class MovingBall : MonoBehaviour {
 
     public float speed = 0.01f;
     public Vector3 size;
-    public Transform table;
+    public Transform renderedObject;
     public bool use_vive = true;
 
 
     public float y_offset = 0.0F, x_offset = 0.0F, z_offset = 0.0F;
+    public float yrot_offset = 0.0F, xrot_offset = 0.0F, zrot_offset = 0.0F;
+   
+
     public bool is_wireframe;
     public bool update_table = true;
     void Awake()
@@ -29,7 +32,9 @@ public class MovingBall : MonoBehaviour {
         {
 
             if (use_vive) {
-                this.table = GameObject.FindGameObjectWithTag("vive_tracker_object").transform;
+
+
+                this.renderedObject = GameObject.FindGameObjectWithTag("vive_tracker_object").transform;
                 Vector3 transform = this.gameObject.transform.position;
                 Vector3 rotation = this.gameObject.transform.eulerAngles;
 
@@ -44,15 +49,19 @@ public class MovingBall : MonoBehaviour {
                 };
 
                 GameObject.FindGameObjectWithTag("logger").GetComponent<CSVLogger>().Log("object_6dof,"+ string.Join(",", data));
-                this.gameObject.transform.eulerAngles = this.table.eulerAngles;
+                Vector3 current_rotation = renderedObject.eulerAngles;
+                Debug.Log("BEFORE: " + this.gameObject.transform.eulerAngles);
+                this.gameObject.transform.eulerAngles = new Vector3(current_rotation.x + xrot_offset, current_rotation.y + yrot_offset, current_rotation.z + zrot_offset);
+                this.gameObject.transform.Rotate(new Vector3(1, 0, 0), 90f, Space.Self);
+                Debug.Log("AFTER: " + this.gameObject.transform.eulerAngles);
             } else {
-                this.table = GameObject.FindGameObjectWithTag("table").transform;
+                this.renderedObject = GameObject.FindGameObjectWithTag("table").transform;
             }
         }
 
 
         // Set the position offset vs the table
-        Vector3 current_position = table.position;
+        Vector3 current_position = renderedObject.position;
         this.gameObject.transform.position = new Vector3(x_offset + current_position.x, y_offset + current_position.y, z_offset + current_position.z);
         MeshRenderer mr = this.GetComponent<MeshRenderer>();
         if (!mr)

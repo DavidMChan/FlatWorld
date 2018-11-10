@@ -63,7 +63,6 @@ public class PositionController : MonoBehaviour {
             hand_model_l.SetActive(false);
         }
 
-
         // Get the information of the moving balls
         MovingBallInfo[] object_infos = experiment_info[current_index].data;
         error_model.UpdateKinectPosition(experiment_info[current_index].kinect_x_offset, experiment_info[current_index].kinect_y_offset, experiment_info[current_index].kinect_z_offset);
@@ -119,12 +118,18 @@ public class PositionController : MonoBehaviour {
             new_object.x_offset = info.x_offset;
             new_object.z_offset = info.z_offset;
             new_object.y_offset = info.y_offset;
+
+            new_object.xrot_offset = info.xrot_offset;// + t.start_rot_x;
+            new_object.zrot_offset = info.zrot_offset;// + t.start_rot_z;
+            new_object.yrot_offset = info.yrot_offset;// + t.start_rot_y;
+
+           
             if (info.wireframe) {
                 new_object.SetWireframe();
             }
             
             // Set the rotation and scale from the info
-            new_object.transform.eulerAngles = new Vector3(new_object.transform.eulerAngles.x, new_object.transform.eulerAngles.y + info.rotation, new_object.transform.eulerAngles.z);
+            new_object.transform.eulerAngles = new Vector3(new_object.transform.eulerAngles.x, new_object.transform.eulerAngles.y , new_object.transform.eulerAngles.z);
             new_object.transform.localScale = new Vector3(info.scale_x, info.scale_y, info.scale_z);
             
             // Add the object to the tracked game objects class

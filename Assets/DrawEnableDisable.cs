@@ -13,6 +13,12 @@ public class DrawEnableDisable : MonoBehaviour {
 	void Update () {
         string partname = this.transform.parent.GetComponent<Leap.Unity.CapsuleHand>().draw;
         bool ghost = false;
+
+        bool fromLeap = this.transform.parent.GetComponent<HandPositionManager>().from_leap;
+        if (!fromLeap && this.name.Equals("tracker"))
+        {
+            this.transform.localEulerAngles = new Vector3(270, transform.localEulerAngles.y, transform.localEulerAngles.z);
+        }
         // start by turning everything off
         this.GetComponent<MeshRenderer>().enabled = false;
         try

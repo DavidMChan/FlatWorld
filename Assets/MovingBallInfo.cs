@@ -7,7 +7,12 @@ public class MovingBallInfo {
 	public float x_offset = 0.0f;
     public float z_offset = 0.0f;
     public float y_offset = 0.0f;
-    
+
+    public float xrot_offset = 0.0f;
+    public float yrot_offset = 0.0f;
+    public float zrot_offset = 0.0f;
+
+
     public float rotation = 0.0f;
     
     public string type = "sphere";

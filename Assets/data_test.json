@@ -12,9 +12,9 @@
           "enable_tracking": true
         }
 			],
-			"hand_type": "rcont",
+			"hand_type": "lcup",
       "show_hands": true,
-      "use_vive_tracker": true
+      "use_vive_tracker": false
 		}
 	]
 }
