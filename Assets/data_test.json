@@ -1,6 +1,24 @@
 {
   "experiments": [
     {
+
+      "data": [
+        {
+          "type": "neutral",
+          "scale_x": 0.001,
+          "scale_y": 0.001,
+          "scale_z": 0.001,
+          "xrot_offset": 90.0,
+          "y_offset": -0.02,
+          "show_error": false,
+          "error_type": "heatmap",
+          "enable_tracking": true
+        }
+      ],
+      "hand_type": "leap",
+      "show_hands": true,
+      "use_vive_tracker": false
+    },{
       "data": [
         {
           "type": "cylinder",

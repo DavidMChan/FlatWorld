@@ -106,6 +106,10 @@ public class PositionController : MonoBehaviour {
             {
                 new_object = Instantiate(object_samples[5]);
             }
+            else if (info.type == "neutral")
+            {
+                new_object = Instantiate(object_samples[6]);
+            }
             else
             {
                 Debug.Log("Error. Invalid object type.");
