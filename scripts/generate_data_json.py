@@ -8,39 +8,23 @@ PREFIX = """{
       ],
       "hand_type": "leap",
       "show_hands": true,
-      "kinect_x_offset": 0.0,
-      "kinect_y_offset": 0.0,
-      "kinect_z_offset": 0.0
+      "use_vive_tracker": false
     },
     {
       "data": [
        
       ],
-      "hand_type": "tracker",
+      "hand_type": "rcup",
       "show_hands": true,
-      "kinect_x_offset": 0.0,
-      "kinect_y_offset": 0.0,
-      "kinect_z_offset": 0.0
+      "use_vive_tracker": false
     },
     {
       "data": [
       
       ],
-      "hand_type": "cont",
+      "hand_type": "tracker",
       "show_hands": true,
-      "kinect_x_offset": 0.0,
-      "kinect_y_offset": 0.0,
-      "kinect_z_offset": 0.0
-    },
-    {
-      "data": [
-        
-      ],
-      "hand_type": "ghostcont",
-      "show_hands": true,
-      "kinect_x_offset": 0.0,
-      "kinect_y_offset": 0.0,
-      "kinect_z_offset": 0.0
+      "use_vive_tracker": true
     },
 """
 
@@ -51,25 +35,47 @@ SUFFIX = """  ]
 TEMPLATE = """    {
       "data": [
         {
-          "type": "%s",
-          "repr": "%s",
-          "wireframe": false
+          %s
         }
       ],
-      "hand_type": "%s",
       "show_hands": true,
-      "kinect_x_offset": 0.0,
-      "kinect_y_offset": 0.0,
-      "kinect_z_offset": 0.0
+      %s
     },
 """
 
-HAND_REPS = ['leap', 'tracker', 'cont']
-OBJECT_REPS = ['foo', 'bar', 'baz']
-OBJECT_TYPES = ['controller', 'cup']
-# TODO: Add object-specific offsets:
-#   - Update TEMPLATE above with more string interpolation in correct places
-#   - Update `str_to_add` line below to interpolate relevant values.
+HAND_REPS = [
+  """"hand_type": "leap",
+        "use_vive_tracker": false""",
+  """"hand_type": "rcup",
+        "use_vive_tracker": false""",
+  """"hand_type": "tracker",
+        "use_vive_tracker": true"""
+]
+OBJECT_REPS = [
+  "\"show_error\": false,",
+  "\"show_error\": true,\n          \"error_type\": \"shell\",",
+  "\"show_error\": true,\n          \"error_type\": \"heatmap\",",
+]
+OBJECT_TYPES = [
+  """"type": "controller",
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "scale_z": 1.0,
+          "xrot_offset": 105.0,
+          "y_offset": 0.005,
+          %s
+          "enable_tracking": true
+  """,
+  """"type": "cylinder",
+          "scale_x": 0.07,
+          "scale_y": 0.1,
+          "scale_z": 0.07,
+          "xrot_offset": 90.0,
+          "y_offset": -0.11,
+          %s
+          "enable_tracking": true
+  """
+]
 
 # Specify number of participants.
 NUM_FILES = 5
@@ -89,7 +95,7 @@ for i in range(NUM_FILES):
         hand_rep = HAND_REPS[current_index%len(HAND_REPS)]
         object_rep = OBJECT_REPS[current_index//len(HAND_REPS)]
 
-        str_to_add = TEMPLATE % (object_rep, obj, hand_rep)
+        str_to_add = TEMPLATE % (obj, hand_rep) % object_rep
         # Remove final comma.
         if i == num_reps - 1 and obj == OBJECT_TYPES[-1]:
           str_to_add = str_to_add[:-2] + '\n'
