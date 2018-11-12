@@ -1,3 +1,4 @@
+import math
 import random
 
 PREFIX = """{
@@ -109,11 +110,11 @@ TEMPLATE = """    {
 
 HAND_REPS = [
   """"hand_type": "leap",
-        "use_vive_tracker": false""",
+      "use_vive_tracker": false""",
   """"hand_type": "rcup",
-        "use_vive_tracker": false""",
+      "use_vive_tracker": false""",
   """"hand_type": "tracker",
-        "use_vive_tracker": true"""
+      "use_vive_tracker": true"""
 ]
 OBJECT_REPS = [
   "\"show_error\": false,",
@@ -128,6 +129,7 @@ OBJECT_TYPES = [
           "xrot_offset": 105.0,
           "y_offset": 0.005,
           %s
+          %s
           "enable_tracking": true
   """,
   """"type": "cylinder",
@@ -136,6 +138,7 @@ OBJECT_TYPES = [
           "scale_z": 0.07,
           "xrot_offset": 90.0,
           "y_offset": -0.11,
+          %s
           %s
           "enable_tracking": true
   """
@@ -149,22 +152,36 @@ for i in range(NUM_FILES):
     f.write(PREFIX)
     num_reps = len(HAND_REPS)*len(OBJECT_REPS)
     # Create a randomized list unique to each object for treatment order.
-    object_randomization = {obj:random.sample(list(range(num_reps)), num_reps) for obj in OBJECT_TYPES}
+    # object_randomization = {obj:random.sample(list(range(num_reps)), num_reps) for obj in OBJECT_TYPES}
 
-    for i in range(num_reps):
+    # for i in range(num_reps): # for x in y
+    for hand_rep_i in random.sample(list(range(len(HAND_REPS))), len(HAND_REPS)):
+      hand_rep = HAND_REPS[hand_rep_i]
       # Cycle through objects.
       for obj in OBJECT_TYPES:
-        current_index = object_randomization[obj][i]
-        # Grab appropriate hand and object representation.
-        hand_rep = HAND_REPS[current_index%len(HAND_REPS)]
-        object_rep = OBJECT_REPS[current_index//len(HAND_REPS)]
+        for object_rep_i in random.sample(list(range(len(OBJECT_REPS))), len(OBJECT_REPS)):
+          object_rep = OBJECT_REPS[object_rep_i]
+        # Last for loop
+          # current_index = object_randomization[obj][i]
+          # Grab appropriate hand and object representation.
+          # hand_rep = HAND_REPS[current_index%len(HAND_REPS)]
+          # object_rep = OBJECT_REPS[current_index//len(HAND_REPS)]
+          # .02 is our `r`
+          r = .02
+          x_offset = random.random()*r
+          z_offset = math.sqrt(r**2 - x_offset**2)
+          if random.random() < .5:
+            x_offset *= -1
+          if random.random() < .5:
+            z_offset *= -1
+          offset = '"x_offset": %.5f,\n          "z_offset": %.5f,' % (x_offset, z_offset)
 
-        str_to_add = TEMPLATE % (obj, hand_rep) % object_rep
-        # Remove final comma.
-        if i == num_reps - 1 and obj == OBJECT_TYPES[-1]:
-          str_to_add = str_to_add[:-2] + '\n'
-          
-        f.write(str_to_add)
+          str_to_add = TEMPLATE % (obj, hand_rep) % (object_rep, offset)
+          # Remove final comma.
+          if i == num_reps - 1 and obj == OBJECT_TYPES[-1]:
+            str_to_add = str_to_add[:-2] + '\n'
+            
+          f.write(str_to_add)
     f.write(SUFFIX)
 
 
