@@ -91,109 +91,6 @@
     {
       "data": [
         {
-          "type": "controller",
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "scale_z": 1.0,
-          "xrot_offset": 105.0,
-          "y_offset": 0.005,
-          "show_error": true,
-          "error_type": "shell",
-          "x_offset": -0.01737,
-          "z_offset": -0.00991,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "leap",
-      "use_vive_tracker": false
-    },
-    {
-      "data": [
-        {
-          "type": "controller",
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "scale_z": 1.0,
-          "xrot_offset": 105.0,
-          "y_offset": 0.005,
-          "show_error": false,
-          "x_offset": -0.00080,
-          "z_offset": -0.01998,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "leap",
-      "use_vive_tracker": false
-    },
-    {
-      "data": [
-        {
-          "type": "controller",
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "scale_z": 1.0,
-          "xrot_offset": 105.0,
-          "y_offset": 0.005,
-          "show_error": true,
-          "error_type": "heatmap",
-          "x_offset": -0.00752,
-          "z_offset": -0.01853,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "leap",
-      "use_vive_tracker": false
-    },
-    {
-      "data": [
-        {
-          "type": "cylinder",
-          "scale_x": 0.07,
-          "scale_y": 0.1,
-          "scale_z": 0.07,
-          "xrot_offset": 90.0,
-          "y_offset": -0.11,
-          "show_error": true,
-          "error_type": "shell",
-          "x_offset": -0.00847,
-          "z_offset": 0.01812,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "leap",
-      "use_vive_tracker": false
-    },
-    {
-      "data": [
-        {
-          "type": "cylinder",
-          "scale_x": 0.07,
-          "scale_y": 0.1,
-          "scale_z": 0.07,
-          "xrot_offset": 90.0,
-          "y_offset": -0.11,
-          "show_error": false,
-          "x_offset": 0.01941,
-          "z_offset": -0.00484,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "leap",
-      "use_vive_tracker": false
-    },
-    {
-      "data": [
-        {
           "type": "cylinder",
           "scale_x": 0.07,
           "scale_y": 0.1,
@@ -202,29 +99,8 @@
           "y_offset": -0.11,
           "show_error": true,
           "error_type": "heatmap",
-          "x_offset": -0.01664,
-          "z_offset": 0.01109,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "leap",
-      "use_vive_tracker": false
-    },
-    {
-      "data": [
-        {
-          "type": "controller",
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "scale_z": 1.0,
-          "xrot_offset": 105.0,
-          "y_offset": 0.005,
-          "show_error": true,
-          "error_type": "shell",
-          "x_offset": -0.00497,
-          "z_offset": -0.01937,
+          "x_offset": 0.01927,
+          "z_offset": -0.00537,
           "enable_tracking": true
   
         }
@@ -236,36 +112,15 @@
     {
       "data": [
         {
-          "type": "controller",
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "scale_z": 1.0,
-          "xrot_offset": 105.0,
-          "y_offset": 0.005,
+          "type": "cylinder",
+          "scale_x": 0.07,
+          "scale_y": 0.1,
+          "scale_z": 0.07,
+          "xrot_offset": 90.0,
+          "y_offset": -0.11,
           "show_error": false,
-          "x_offset": 0.00612,
-          "z_offset": 0.01904,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "tracker",
-      "use_vive_tracker": true
-    },
-    {
-      "data": [
-        {
-          "type": "controller",
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "scale_z": 1.0,
-          "xrot_offset": 105.0,
-          "y_offset": 0.005,
-          "show_error": true,
-          "error_type": "heatmap",
-          "x_offset": 0.01453,
-          "z_offset": -0.01375,
+          "x_offset": -0.00471,
+          "z_offset": -0.01944,
           "enable_tracking": true
   
         }
@@ -285,8 +140,8 @@
           "y_offset": -0.11,
           "show_error": true,
           "error_type": "shell",
-          "x_offset": 0.01393,
-          "z_offset": 0.01435,
+          "x_offset": 0.01575,
+          "z_offset": -0.01232,
           "enable_tracking": true
   
         }
@@ -298,36 +153,36 @@
     {
       "data": [
         {
-          "type": "cylinder",
-          "scale_x": 0.07,
-          "scale_y": 0.1,
-          "scale_z": 0.07,
-          "xrot_offset": 90.0,
-          "y_offset": -0.11,
-          "show_error": false,
-          "x_offset": 0.00523,
-          "z_offset": 0.01930,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "tracker",
-      "use_vive_tracker": true
-    },
-    {
-      "data": [
-        {
-          "type": "cylinder",
-          "scale_x": 0.07,
-          "scale_y": 0.1,
-          "scale_z": 0.07,
-          "xrot_offset": 90.0,
-          "y_offset": -0.11,
+          "type": "controller",
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "scale_z": 1.0,
+          "xrot_offset": 105.0,
+          "y_offset": 0.005,
           "show_error": true,
           "error_type": "heatmap",
-          "x_offset": -0.01980,
-          "z_offset": -0.00282,
+          "x_offset": 0.01723,
+          "z_offset": -0.01016,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "tracker",
+      "use_vive_tracker": true
+    },
+    {
+      "data": [
+        {
+          "type": "controller",
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "scale_z": 1.0,
+          "xrot_offset": 105.0,
+          "y_offset": 0.005,
+          "show_error": false,
+          "x_offset": -0.00478,
+          "z_offset": 0.01942,
           "enable_tracking": true
   
         }
@@ -347,49 +202,49 @@
           "y_offset": 0.005,
           "show_error": true,
           "error_type": "shell",
-          "x_offset": -0.01317,
-          "z_offset": -0.01505,
+          "x_offset": 0.00957,
+          "z_offset": 0.01756,
           "enable_tracking": true
   
         }
       ],
       "show_hands": true,
-      "hand_type": "rcup",
-      "use_vive_tracker": false
+      "hand_type": "tracker",
+      "use_vive_tracker": true
     },
     {
       "data": [
         {
-          "type": "controller",
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "scale_z": 1.0,
-          "xrot_offset": 105.0,
-          "y_offset": 0.005,
-          "show_error": false,
-          "x_offset": 0.00360,
-          "z_offset": 0.01967,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "rcup",
-      "use_vive_tracker": false
-    },
-    {
-      "data": [
-        {
-          "type": "controller",
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "scale_z": 1.0,
-          "xrot_offset": 105.0,
-          "y_offset": 0.005,
+          "type": "cylinder",
+          "scale_x": 0.07,
+          "scale_y": 0.1,
+          "scale_z": 0.07,
+          "xrot_offset": 90.0,
+          "y_offset": -0.11,
           "show_error": true,
           "error_type": "heatmap",
-          "x_offset": 0.01063,
-          "z_offset": 0.01694,
+          "x_offset": 0.00700,
+          "z_offset": -0.01874,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "rcup",
+      "use_vive_tracker": false
+    },
+    {
+      "data": [
+        {
+          "type": "cylinder",
+          "scale_x": 0.07,
+          "scale_y": 0.1,
+          "scale_z": 0.07,
+          "xrot_offset": 90.0,
+          "y_offset": -0.11,
+          "show_error": false,
+          "x_offset": 0.00292,
+          "z_offset": -0.01979,
           "enable_tracking": true
   
         }
@@ -409,8 +264,8 @@
           "y_offset": -0.11,
           "show_error": true,
           "error_type": "shell",
-          "x_offset": 0.01364,
-          "z_offset": -0.01463,
+          "x_offset": -0.00480,
+          "z_offset": 0.01942,
           "enable_tracking": true
   
         }
@@ -422,15 +277,57 @@
     {
       "data": [
         {
-          "type": "cylinder",
-          "scale_x": 0.07,
-          "scale_y": 0.1,
-          "scale_z": 0.07,
-          "xrot_offset": 90.0,
-          "y_offset": -0.11,
+          "type": "controller",
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "scale_z": 1.0,
+          "xrot_offset": 105.0,
+          "y_offset": 0.005,
+          "show_error": true,
+          "error_type": "heatmap",
+          "x_offset": -0.00424,
+          "z_offset": -0.01954,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "rcup",
+      "use_vive_tracker": false
+    },
+    {
+      "data": [
+        {
+          "type": "controller",
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "scale_z": 1.0,
+          "xrot_offset": 105.0,
+          "y_offset": 0.005,
           "show_error": false,
-          "x_offset": -0.01319,
-          "z_offset": -0.01503,
+          "x_offset": -0.00635,
+          "z_offset": 0.01896,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "rcup",
+      "use_vive_tracker": false
+    },
+    {
+      "data": [
+        {
+          "type": "controller",
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "scale_z": 1.0,
+          "xrot_offset": 105.0,
+          "y_offset": 0.005,
+          "show_error": true,
+          "error_type": "shell",
+          "x_offset": -0.01197,
+          "z_offset": -0.01603,
           "enable_tracking": true
   
         }
@@ -450,15 +347,118 @@
           "y_offset": -0.11,
           "show_error": true,
           "error_type": "heatmap",
-          "x_offset": -0.01449,
-          "z_offset": 0.01379,
+          "x_offset": -0.01553,
+          "z_offset": -0.01260,
           "enable_tracking": true
   
         }
       ],
       "show_hands": true,
-      "hand_type": "rcup",
+      "hand_type": "leap",
       "use_vive_tracker": false
     },
+    {
+      "data": [
+        {
+          "type": "cylinder",
+          "scale_x": 0.07,
+          "scale_y": 0.1,
+          "scale_z": 0.07,
+          "xrot_offset": 90.0,
+          "y_offset": -0.11,
+          "show_error": false,
+          "x_offset": 0.01438,
+          "z_offset": -0.01390,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "leap",
+      "use_vive_tracker": false
+    },
+    {
+      "data": [
+        {
+          "type": "cylinder",
+          "scale_x": 0.07,
+          "scale_y": 0.1,
+          "scale_z": 0.07,
+          "xrot_offset": 90.0,
+          "y_offset": -0.11,
+          "show_error": true,
+          "error_type": "shell",
+          "x_offset": 0.00806,
+          "z_offset": 0.01830,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "leap",
+      "use_vive_tracker": false
+    },
+    {
+      "data": [
+        {
+          "type": "controller",
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "scale_z": 1.0,
+          "xrot_offset": 105.0,
+          "y_offset": 0.005,
+          "show_error": true,
+          "error_type": "heatmap",
+          "x_offset": -0.00474,
+          "z_offset": -0.01943,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "leap",
+      "use_vive_tracker": false
+    },
+    {
+      "data": [
+        {
+          "type": "controller",
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "scale_z": 1.0,
+          "xrot_offset": 105.0,
+          "y_offset": 0.005,
+          "show_error": false,
+          "x_offset": -0.00679,
+          "z_offset": -0.01881,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "leap",
+      "use_vive_tracker": false
+    },
+    {
+      "data": [
+        {
+          "type": "controller",
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "scale_z": 1.0,
+          "xrot_offset": 105.0,
+          "y_offset": 0.005,
+          "show_error": true,
+          "error_type": "shell",
+          "x_offset": 0.01503,
+          "z_offset": -0.01320,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "leap",
+      "use_vive_tracker": false
+    }
   ]
 }

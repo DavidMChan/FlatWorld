@@ -98,37 +98,16 @@
           "xrot_offset": 90.0,
           "y_offset": -0.11,
           "show_error": false,
-          "x_offset": -0.01968,
-          "z_offset": 0.00354,
+          "x_offset": 0.01918,
+          "z_offset": -0.00568,
           "enable_tracking": true
   
         }
       ],
       "show_hands": true,
-      "hand_type": "tracker",
-      "use_vive_tracker": true
-    }
-    {
-      "data": [
-        {
-          "type": "cylinder",
-          "scale_x": 0.07,
-          "scale_y": 0.1,
-          "scale_z": 0.07,
-          "xrot_offset": 90.0,
-          "y_offset": -0.11,
-          "show_error": true,
-          "error_type": "shell",
-          "x_offset": 0.01622,
-          "z_offset": -0.01170,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "tracker",
-      "use_vive_tracker": true
-    }
+      "hand_type": "rcup",
+      "use_vive_tracker": false
+    },
     {
       "data": [
         {
@@ -140,16 +119,37 @@
           "y_offset": -0.11,
           "show_error": true,
           "error_type": "heatmap",
-          "x_offset": 0.01836,
-          "z_offset": -0.00794,
+          "x_offset": -0.01397,
+          "z_offset": 0.01432,
           "enable_tracking": true
   
         }
       ],
       "show_hands": true,
-      "hand_type": "tracker",
-      "use_vive_tracker": true
-    }
+      "hand_type": "rcup",
+      "use_vive_tracker": false
+    },
+    {
+      "data": [
+        {
+          "type": "cylinder",
+          "scale_x": 0.07,
+          "scale_y": 0.1,
+          "scale_z": 0.07,
+          "xrot_offset": 90.0,
+          "y_offset": -0.11,
+          "show_error": true,
+          "error_type": "shell",
+          "x_offset": 0.00690,
+          "z_offset": -0.01877,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "rcup",
+      "use_vive_tracker": false
+    },
     {
       "data": [
         {
@@ -160,153 +160,8 @@
           "xrot_offset": 105.0,
           "y_offset": 0.005,
           "show_error": false,
-          "x_offset": -0.01548,
-          "z_offset": -0.01266,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "tracker",
-      "use_vive_tracker": true
-    },
-    {
-      "data": [
-        {
-          "type": "controller",
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "scale_z": 1.0,
-          "xrot_offset": 105.0,
-          "y_offset": 0.005,
-          "show_error": true,
-          "error_type": "shell",
-          "x_offset": -0.01412,
-          "z_offset": 0.01417,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "tracker",
-      "use_vive_tracker": true
-    },
-    {
-      "data": [
-        {
-          "type": "controller",
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "scale_z": 1.0,
-          "xrot_offset": 105.0,
-          "y_offset": 0.005,
-          "show_error": true,
-          "error_type": "heatmap",
-          "x_offset": -0.01737,
-          "z_offset": 0.00991,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "tracker",
-      "use_vive_tracker": true
-    },
-    {
-      "data": [
-        {
-          "type": "cylinder",
-          "scale_x": 0.07,
-          "scale_y": 0.1,
-          "scale_z": 0.07,
-          "xrot_offset": 90.0,
-          "y_offset": -0.11,
-          "show_error": false,
-          "x_offset": 0.01475,
-          "z_offset": 0.01350,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "rcup",
-      "use_vive_tracker": false
-    }
-    {
-      "data": [
-        {
-          "type": "cylinder",
-          "scale_x": 0.07,
-          "scale_y": 0.1,
-          "scale_z": 0.07,
-          "xrot_offset": 90.0,
-          "y_offset": -0.11,
-          "show_error": true,
-          "error_type": "shell",
-          "x_offset": 0.01698,
-          "z_offset": 0.01057,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "rcup",
-      "use_vive_tracker": false
-    }
-    {
-      "data": [
-        {
-          "type": "cylinder",
-          "scale_x": 0.07,
-          "scale_y": 0.1,
-          "scale_z": 0.07,
-          "xrot_offset": 90.0,
-          "y_offset": -0.11,
-          "show_error": true,
-          "error_type": "heatmap",
-          "x_offset": 0.01090,
-          "z_offset": 0.01677,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "rcup",
-      "use_vive_tracker": false
-    }
-    {
-      "data": [
-        {
-          "type": "controller",
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "scale_z": 1.0,
-          "xrot_offset": 105.0,
-          "y_offset": 0.005,
-          "show_error": false,
-          "x_offset": -0.00452,
-          "z_offset": 0.01948,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "rcup",
-      "use_vive_tracker": false
-    },
-    {
-      "data": [
-        {
-          "type": "controller",
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "scale_z": 1.0,
-          "xrot_offset": 105.0,
-          "y_offset": 0.005,
-          "show_error": true,
-          "error_type": "shell",
-          "x_offset": 0.01457,
-          "z_offset": -0.01370,
+          "x_offset": -0.01209,
+          "z_offset": 0.01593,
           "enable_tracking": true
   
         }
@@ -326,8 +181,29 @@
           "y_offset": 0.005,
           "show_error": true,
           "error_type": "heatmap",
-          "x_offset": -0.01478,
-          "z_offset": -0.01347,
+          "x_offset": 0.00588,
+          "z_offset": -0.01911,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "rcup",
+      "use_vive_tracker": false
+    },
+    {
+      "data": [
+        {
+          "type": "controller",
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "scale_z": 1.0,
+          "xrot_offset": 105.0,
+          "y_offset": 0.005,
+          "show_error": true,
+          "error_type": "shell",
+          "x_offset": -0.00544,
+          "z_offset": 0.01925,
           "enable_tracking": true
   
         }
@@ -346,37 +222,16 @@
           "xrot_offset": 90.0,
           "y_offset": -0.11,
           "show_error": false,
-          "x_offset": -0.00920,
-          "z_offset": 0.01776,
+          "x_offset": -0.01763,
+          "z_offset": 0.00945,
           "enable_tracking": true
   
         }
       ],
       "show_hands": true,
-      "hand_type": "leap",
-      "use_vive_tracker": false
-    }
-    {
-      "data": [
-        {
-          "type": "cylinder",
-          "scale_x": 0.07,
-          "scale_y": 0.1,
-          "scale_z": 0.07,
-          "xrot_offset": 90.0,
-          "y_offset": -0.11,
-          "show_error": true,
-          "error_type": "shell",
-          "x_offset": -0.01158,
-          "z_offset": -0.01631,
-          "enable_tracking": true
-  
-        }
-      ],
-      "show_hands": true,
-      "hand_type": "leap",
-      "use_vive_tracker": false
-    }
+      "hand_type": "tracker",
+      "use_vive_tracker": true
+    },
     {
       "data": [
         {
@@ -388,16 +243,37 @@
           "y_offset": -0.11,
           "show_error": true,
           "error_type": "heatmap",
-          "x_offset": 0.01328,
-          "z_offset": 0.01495,
+          "x_offset": -0.01844,
+          "z_offset": 0.00774,
           "enable_tracking": true
   
         }
       ],
       "show_hands": true,
-      "hand_type": "leap",
-      "use_vive_tracker": false
-    }
+      "hand_type": "tracker",
+      "use_vive_tracker": true
+    },
+    {
+      "data": [
+        {
+          "type": "cylinder",
+          "scale_x": 0.07,
+          "scale_y": 0.1,
+          "scale_z": 0.07,
+          "xrot_offset": 90.0,
+          "y_offset": -0.11,
+          "show_error": true,
+          "error_type": "shell",
+          "x_offset": -0.01396,
+          "z_offset": 0.01432,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "tracker",
+      "use_vive_tracker": true
+    },
     {
       "data": [
         {
@@ -408,8 +284,112 @@
           "xrot_offset": 105.0,
           "y_offset": 0.005,
           "show_error": false,
-          "x_offset": -0.01425,
-          "z_offset": -0.01404,
+          "x_offset": 0.01542,
+          "z_offset": -0.01274,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "tracker",
+      "use_vive_tracker": true
+    },
+    {
+      "data": [
+        {
+          "type": "controller",
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "scale_z": 1.0,
+          "xrot_offset": 105.0,
+          "y_offset": 0.005,
+          "show_error": true,
+          "error_type": "heatmap",
+          "x_offset": -0.01131,
+          "z_offset": -0.01650,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "tracker",
+      "use_vive_tracker": true
+    },
+    {
+      "data": [
+        {
+          "type": "controller",
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "scale_z": 1.0,
+          "xrot_offset": 105.0,
+          "y_offset": 0.005,
+          "show_error": true,
+          "error_type": "shell",
+          "x_offset": -0.01511,
+          "z_offset": 0.01310,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "tracker",
+      "use_vive_tracker": true
+    },
+    {
+      "data": [
+        {
+          "type": "cylinder",
+          "scale_x": 0.07,
+          "scale_y": 0.1,
+          "scale_z": 0.07,
+          "xrot_offset": 90.0,
+          "y_offset": -0.11,
+          "show_error": false,
+          "x_offset": -0.01976,
+          "z_offset": 0.00307,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "leap",
+      "use_vive_tracker": false
+    },
+    {
+      "data": [
+        {
+          "type": "cylinder",
+          "scale_x": 0.07,
+          "scale_y": 0.1,
+          "scale_z": 0.07,
+          "xrot_offset": 90.0,
+          "y_offset": -0.11,
+          "show_error": true,
+          "error_type": "heatmap",
+          "x_offset": 0.00393,
+          "z_offset": -0.01961,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "leap",
+      "use_vive_tracker": false
+    },
+    {
+      "data": [
+        {
+          "type": "cylinder",
+          "scale_x": 0.07,
+          "scale_y": 0.1,
+          "scale_z": 0.07,
+          "xrot_offset": 90.0,
+          "y_offset": -0.11,
+          "show_error": true,
+          "error_type": "shell",
+          "x_offset": 0.00308,
+          "z_offset": 0.01976,
           "enable_tracking": true
   
         }
@@ -427,10 +407,9 @@
           "scale_z": 1.0,
           "xrot_offset": 105.0,
           "y_offset": 0.005,
-          "show_error": true,
-          "error_type": "shell",
-          "x_offset": 0.00684,
-          "z_offset": -0.01879,
+          "show_error": false,
+          "x_offset": 0.01767,
+          "z_offset": 0.00937,
           "enable_tracking": true
   
         }
@@ -450,8 +429,8 @@
           "y_offset": 0.005,
           "show_error": true,
           "error_type": "heatmap",
-          "x_offset": 0.01225,
-          "z_offset": -0.01581,
+          "x_offset": 0.00120,
+          "z_offset": 0.01996,
           "enable_tracking": true
   
         }
@@ -460,5 +439,26 @@
       "hand_type": "leap",
       "use_vive_tracker": false
     },
+    {
+      "data": [
+        {
+          "type": "controller",
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "scale_z": 1.0,
+          "xrot_offset": 105.0,
+          "y_offset": 0.005,
+          "show_error": true,
+          "error_type": "shell",
+          "x_offset": 0.01405,
+          "z_offset": 0.01423,
+          "enable_tracking": true
+  
+        }
+      ],
+      "show_hands": true,
+      "hand_type": "leap",
+      "use_vive_tracker": false
+    }
   ]
 }

@@ -98,8 +98,8 @@
           "xrot_offset": 90.0,
           "y_offset": -0.11,
           "show_error": false,
-          "x_offset": 0.00988,
-          "z_offset": 0.01739,
+          "x_offset": 0.01952,
+          "z_offset": -0.00434,
           "enable_tracking": true
   
         }
@@ -119,8 +119,8 @@
           "y_offset": -0.11,
           "show_error": true,
           "error_type": "heatmap",
-          "x_offset": -0.01583,
-          "z_offset": 0.01223,
+          "x_offset": -0.01070,
+          "z_offset": 0.01690,
           "enable_tracking": true
   
         }
@@ -140,8 +140,8 @@
           "y_offset": -0.11,
           "show_error": true,
           "error_type": "shell",
-          "x_offset": -0.00833,
-          "z_offset": 0.01818,
+          "x_offset": -0.01297,
+          "z_offset": -0.01523,
           "enable_tracking": true
   
         }
@@ -160,8 +160,8 @@
           "xrot_offset": 105.0,
           "y_offset": 0.005,
           "show_error": false,
-          "x_offset": 0.00353,
-          "z_offset": -0.01969,
+          "x_offset": -0.00634,
+          "z_offset": 0.01897,
           "enable_tracking": true
   
         }
@@ -181,8 +181,8 @@
           "y_offset": 0.005,
           "show_error": true,
           "error_type": "heatmap",
-          "x_offset": -0.01494,
-          "z_offset": 0.01329,
+          "x_offset": -0.01231,
+          "z_offset": 0.01576,
           "enable_tracking": true
   
         }
@@ -202,8 +202,8 @@
           "y_offset": 0.005,
           "show_error": true,
           "error_type": "shell",
-          "x_offset": -0.01733,
-          "z_offset": 0.00999,
+          "x_offset": -0.01252,
+          "z_offset": -0.01559,
           "enable_tracking": true
   
         }
@@ -222,8 +222,8 @@
           "xrot_offset": 90.0,
           "y_offset": -0.11,
           "show_error": false,
-          "x_offset": -0.00256,
-          "z_offset": -0.01984,
+          "x_offset": 0.01609,
+          "z_offset": 0.01188,
           "enable_tracking": true
   
         }
@@ -243,8 +243,8 @@
           "y_offset": -0.11,
           "show_error": true,
           "error_type": "heatmap",
-          "x_offset": -0.01669,
-          "z_offset": 0.01102,
+          "x_offset": -0.01106,
+          "z_offset": 0.01666,
           "enable_tracking": true
   
         }
@@ -264,8 +264,8 @@
           "y_offset": -0.11,
           "show_error": true,
           "error_type": "shell",
-          "x_offset": 0.01968,
-          "z_offset": -0.00356,
+          "x_offset": -0.01220,
+          "z_offset": 0.01585,
           "enable_tracking": true
   
         }
@@ -284,8 +284,8 @@
           "xrot_offset": 105.0,
           "y_offset": 0.005,
           "show_error": false,
-          "x_offset": -0.01481,
-          "z_offset": -0.01345,
+          "x_offset": 0.00819,
+          "z_offset": 0.01824,
           "enable_tracking": true
   
         }
@@ -305,8 +305,8 @@
           "y_offset": 0.005,
           "show_error": true,
           "error_type": "heatmap",
-          "x_offset": 0.01005,
-          "z_offset": 0.01729,
+          "x_offset": 0.00678,
+          "z_offset": 0.01881,
           "enable_tracking": true
   
         }
@@ -326,8 +326,8 @@
           "y_offset": 0.005,
           "show_error": true,
           "error_type": "shell",
-          "x_offset": -0.01847,
-          "z_offset": -0.00766,
+          "x_offset": 0.01283,
+          "z_offset": 0.01535,
           "enable_tracking": true
   
         }
@@ -346,8 +346,8 @@
           "xrot_offset": 90.0,
           "y_offset": -0.11,
           "show_error": false,
-          "x_offset": 0.00630,
-          "z_offset": -0.01898,
+          "x_offset": 0.00678,
+          "z_offset": -0.01882,
           "enable_tracking": true
   
         }
@@ -367,8 +367,8 @@
           "y_offset": -0.11,
           "show_error": true,
           "error_type": "heatmap",
-          "x_offset": -0.01021,
-          "z_offset": -0.01720,
+          "x_offset": 0.01354,
+          "z_offset": 0.01472,
           "enable_tracking": true
   
         }
@@ -388,8 +388,8 @@
           "y_offset": -0.11,
           "show_error": true,
           "error_type": "shell",
-          "x_offset": -0.01018,
-          "z_offset": -0.01722,
+          "x_offset": -0.01239,
+          "z_offset": 0.01570,
           "enable_tracking": true
   
         }
@@ -408,8 +408,8 @@
           "xrot_offset": 105.0,
           "y_offset": 0.005,
           "show_error": false,
-          "x_offset": -0.00657,
-          "z_offset": -0.01889,
+          "x_offset": -0.01607,
+          "z_offset": 0.01191,
           "enable_tracking": true
   
         }
@@ -429,8 +429,8 @@
           "y_offset": 0.005,
           "show_error": true,
           "error_type": "heatmap",
-          "x_offset": 0.01337,
-          "z_offset": -0.01487,
+          "x_offset": 0.00967,
+          "z_offset": 0.01750,
           "enable_tracking": true
   
         }
@@ -450,8 +450,8 @@
           "y_offset": 0.005,
           "show_error": true,
           "error_type": "shell",
-          "x_offset": 0.01651,
-          "z_offset": 0.01129,
+          "x_offset": -0.00201,
+          "z_offset": 0.01990,
           "enable_tracking": true
   
         }
@@ -459,6 +459,6 @@
       "show_hands": true,
       "hand_type": "rcup",
       "use_vive_tracker": false
-    },
+    }
   ]
 }

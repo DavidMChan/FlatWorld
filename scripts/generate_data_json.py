@@ -182,7 +182,7 @@ for i in range(NUM_FILES):
 
           str_to_add = TEMPLATE % (obj, hand_rep) % (object_rep, offset)
           # Remove final comma.
-          if i == num_reps - 1 and obj == OBJECT_TYPES[-1]:
+          if hand_rep_i == hand_rep_order[-1] and obj_type_i == object_type_order[-1] and object_rep_i == object_rep_order[-1]:
             str_to_add = str_to_add[:-2] + '\n'
             
           f.write(str_to_add)
