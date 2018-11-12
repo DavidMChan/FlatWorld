@@ -153,13 +153,17 @@ for i in range(NUM_FILES):
     num_reps = len(HAND_REPS)*len(OBJECT_REPS)
     # Create a randomized list unique to each object for treatment order.
     # object_randomization = {obj:random.sample(list(range(num_reps)), num_reps) for obj in OBJECT_TYPES}
+    hand_rep_order = random.sample(list(range(len(HAND_REPS))), len(HAND_REPS))
+    object_type_order = random.sample(list(range(len(OBJECT_TYPES))), len(OBJECT_TYPES))
+    object_rep_order = random.sample(list(range(len(OBJECT_REPS))), len(OBJECT_REPS))
 
     # for i in range(num_reps): # for x in y
-    for hand_rep_i in random.sample(list(range(len(HAND_REPS))), len(HAND_REPS)):
+    for hand_rep_i in hand_rep_order:
       hand_rep = HAND_REPS[hand_rep_i]
       # Cycle through objects.
-      for obj in OBJECT_TYPES:
-        for object_rep_i in random.sample(list(range(len(OBJECT_REPS))), len(OBJECT_REPS)):
+      for obj_type_i in object_type_order:
+        obj = OBJECT_TYPES[obj_type_i]
+        for object_rep_i in object_rep_order:
           object_rep = OBJECT_REPS[object_rep_i]
         # Last for loop
           # current_index = object_randomization[obj][i]
