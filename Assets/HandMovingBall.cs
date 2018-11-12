@@ -80,7 +80,6 @@ public class HandMovingBall : MovingBall {
 
         if (this.GetComponent<MeshRenderer>().enabled)
         {
-            Debug.Log("Hand drawing.");
             h.Draw(trs);
         }
        

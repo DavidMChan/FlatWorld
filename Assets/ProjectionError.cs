@@ -29,7 +29,7 @@ public class ProjectionError : MonoBehaviour
         else if (error_type == "heatmap")
         {
             this.transform.localScale = new Vector3(err_x, err_z, 1) + parent_object.size;
-            this.transform.position = new Vector3(this.parent_object.transform.position.x, 0.78f, this.parent_object.transform.position.z);
+            this.transform.position = new Vector3(this.parent_object.transform.position.x, 0.72f, this.parent_object.transform.position.z);
         }
     }
 }

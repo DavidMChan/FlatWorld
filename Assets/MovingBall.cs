@@ -59,8 +59,11 @@ public class MovingBall : MonoBehaviour {
 
 
         // Set the position offset vs the table
-        Vector3 current_position = renderedObject.position;
-        this.gameObject.transform.position = new Vector3(x_offset + current_position.x, y_offset + current_position.y, z_offset + current_position.z);
+        if (renderedObject)
+        {
+            Vector3 current_position = renderedObject.position;
+            this.gameObject.transform.position = new Vector3(x_offset + current_position.x, y_offset + current_position.y, z_offset + current_position.z);
+        }
         MeshRenderer mr = this.GetComponent<MeshRenderer>();
         if (!mr)
         {
