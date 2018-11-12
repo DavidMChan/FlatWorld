@@ -1,21 +1,40 @@
 {
-	"experiments": [
-		{
-			"data": [
+  "experiments": [
+    {
+      "data": [
         {
           "type": "cylinder",
           "scale_x": 0.1,
           "scale_y": 0.1,
           "scale_z": 0.1,
           "xrot_offset": 90.0,
+          "y_offset": -0.09,
           "show_error": true,
           "error_type": "heatmap",
           "enable_tracking": true
         }
-			],
-			"hand_type": "lcup",
+      ],
+      "hand_type": "lcup",
       "show_hands": true,
       "use_vive_tracker": false
-		}
-	]
+    },
+    {
+      "data": [
+        {
+          "type": "controller",
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "scale_z": 1.0,
+          "xrot_offset": 90.0,
+          "y_offset": 0.05,
+          "show_error": true,
+          "error_type": "sphere",
+          "enable_tracking": true
+        }
+      ],
+      "hand_type": "lcup",
+      "show_hands": true,
+      "use_vive_tracker": false
+    }
+  ]
 }
