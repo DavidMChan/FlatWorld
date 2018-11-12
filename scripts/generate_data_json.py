@@ -4,7 +4,17 @@ PREFIX = """{
   "experiments": [
     {
       "data": [
-        
+        {
+          "type": "neutral",
+          "scale_x": 0.001,
+          "scale_y": 0.001,
+          "scale_z": 0.001,
+          "xrot_offset": 90.0,
+          "y_offset": -0.02,
+          "show_error": false,
+          "error_type": "heatmap",
+          "enable_tracking": true
+        }
       ],
       "hand_type": "leap",
       "show_hands": true,
@@ -12,7 +22,17 @@ PREFIX = """{
     },
     {
       "data": [
-       
+        {
+          "type": "neutral",
+          "scale_x": 0.001,
+          "scale_y": 0.001,
+          "scale_z": 0.001,
+          "xrot_offset": 90.0,
+          "y_offset": -0.02,
+          "show_error": false,
+          "error_type": "heatmap",
+          "enable_tracking": true
+        }
       ],
       "hand_type": "rcup",
       "show_hands": true,
@@ -20,11 +40,55 @@ PREFIX = """{
     },
     {
       "data": [
-      
+        {
+          "type": "neutral",
+          "scale_x": 0.001,
+          "scale_y": 0.001,
+          "scale_z": 0.001,
+          "xrot_offset": 90.0,
+          "y_offset": -0.02,
+          "show_error": false,
+          "error_type": "heatmap",
+          "enable_tracking": true
+        }
       ],
       "hand_type": "tracker",
       "show_hands": true,
       "use_vive_tracker": true
+    },
+    {
+      "data": [
+        {
+          "type": "neutral",
+          "scale_x": 0.001,
+          "scale_y": 0.001,
+          "scale_z": 0.001,
+          "xrot_offset": 90.0,
+          "y_offset": -0.02,
+          "show_error": true,
+          "error_type": "heatmap",
+          "enable_tracking": true
+        }
+      ],
+      "show_hands": false,
+      "use_vive_tracker": false
+    },
+    {
+      "data": [
+        {
+          "type": "neutral",
+          "scale_x": 0.001,
+          "scale_y": 0.001,
+          "scale_z": 0.001,
+          "xrot_offset": 90.0,
+          "y_offset": -0.02,
+          "show_error": true,
+          "error_type": "shell",
+          "enable_tracking": true
+        }
+      ],
+      "show_hands": false,
+      "use_vive_tracker": false
     },
 """
 
@@ -78,7 +142,7 @@ OBJECT_TYPES = [
 ]
 
 # Specify number of participants.
-NUM_FILES = 5
+NUM_FILES = 10
 
 for i in range(NUM_FILES):
   with open('data_{}.json'.format(i), 'w') as f:
